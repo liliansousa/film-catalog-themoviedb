@@ -5,5 +5,14 @@ header {
     background-color: #081c24;
     width: 100%;
     z-index: 999;
-    height: 160px;
+    // height: 160px;
+
+
+    section.search {
+        width: 100%;
+        background-color: #fff;
+        height: 46px;
+        border-bottom: 1px solid #dedede;
+    }
 }
+
