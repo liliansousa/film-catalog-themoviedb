@@ -1,0 +1,20 @@
+// Paddings and Margins sizess
+$sizes: 10, 15, 20, 25, 30, 40, 50, 60, 100;
+
+@each $padding in $sizes {
+  .pd-top-#{$padding} {
+    padding-top: #{$padding}px;
+  }
+  .pd-bottom-#{$padding} {
+    padding-bottom: #{$padding}px;
+  }
+}
+
+@each $margin in $sizes {
+  .margin-top-#{$margin} {
+    margin-top: #{$margin}px;
+  }
+  .margin-bottom-#{$margin} {
+    margin-bottom: #{$margin}px;
+  }
+}
