@@ -3,8 +3,8 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
 
 ##### themoviedb API Useful Links:
-Documentation: https://www.themoviedb.org/documentation/api
-Support forum: https://www.themoviedb.org/talk/category/5047958519c29526b50017d6
+Documentation: https://www.themoviedb.org/documentation/api   
+Support forum: https://www.themoviedb.org/talk/category/5047958519c29526b50017d6               
 Wrappers & libraries: https://www.themoviedb.org/documentation/api/wrappers-libraries
 
 ## Development server
