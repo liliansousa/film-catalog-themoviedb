@@ -1,0 +1,17 @@
+<app-moviedb-info-leadspace></app-moviedb-info-leadspace>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Movie Works</h2>
+
+                <div *ngFor="let movie of movieList">
+                    <p>
+                    {{ movie.title }}
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>

@@ -7,6 +7,9 @@ import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { MoviedbCardBoxComponent } from './component/moviedb-card-box/moviedb-card-box.component';
 import { MoviedbInfoLeadspaceComponent } from './component/moviedb-info-leadspace/moviedb-info-leadspace.component';
+import { HomeComponent } from './views/home/home.component';
+import { MovieComponent } from './views/movie/movie.component';
+import { ThemoviedbService } from './services/themoviedb.service';
 
 @NgModule({
   declarations: [
@@ -14,14 +17,16 @@ import { MoviedbInfoLeadspaceComponent } from './component/moviedb-info-leadspac
     HeaderComponent,
     FooterComponent,
     MoviedbCardBoxComponent,
-    MoviedbInfoLeadspaceComponent
+    MoviedbInfoLeadspaceComponent,
+    HomeComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ThemoviedbService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
