@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row-no-gutters">
                 <div *ngFor="let movie of movieList;">
-                    <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="col-md-4 col-sm-6 col-xs-6">
                         <a class="movie-card" href="/movie?{{ movie.id }}">
                             <div class="card-container">
                                 <p class="movie-card-title txt-white-color">
@@ -41,7 +41,7 @@
         </div>
         <div class="row">
             <div *ngFor="let movie of popularMovies;">
-                <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="col-md-4 col-sm-6 col-xs-12">
                     <a class="movie-card margin-bottom-20" href="/movie?{{ movie.id }}">
                         <div class="movie-table-card">
                             <div class="movie-img-card">

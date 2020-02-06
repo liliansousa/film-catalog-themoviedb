@@ -1,8 +1,11 @@
+// Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+// Custom App Views components
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { MoviedbCardBoxComponent } from './component/moviedb-card-box/moviedb-card-box.component';
@@ -13,6 +16,7 @@ import { ThemoviedbService } from './services/themoviedb.service';
 import { SearchComponent } from './views/search/search.component';
 import { DiscoverComponent } from './views/movie/discover/discover.component';
 import { GenreComponent } from './views/movie/genre/genre.component';
+import { TopSearchFormComponent } from './component/top-search-form/top-search-form.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +29,15 @@ import { GenreComponent } from './views/movie/genre/genre.component';
     MovieComponent,
     SearchComponent,
     DiscoverComponent,
-    GenreComponent
+    GenreComponent,
+    TopSearchFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ThemoviedbService],
   bootstrap: [AppComponent]
