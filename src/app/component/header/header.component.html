@@ -3,12 +3,31 @@
         <div class="pd-top-15 pd-bottom-15 db-dark-bg ">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2 col-sm-2 col-xs-2">
-                        <img src="../../../assets/images/primary-green-themoviedb-logo.svg" alt="logo The Movie DB"
-                            width="80" height="70">
-                    </div>
-                    <div class="col-md-10 col-sm-10 col-xs-10">
-                        <h1 class="txt-white-color font-source-sans-pro">Catálogo de filmes - The Movie Database</h1>
+                    <div class="col-md-12">
+                        <div class="wrapper">
+                            <div class="logo">
+                                <img class="img-resize" src="../../../assets/images/primary-green-themoviedb-logo.svg" alt="logo The Movie DB"
+                                width="80" height="70">
+                            </div>
+                            <div class="header-content">
+                                <nav class="navbar">
+                                    <h1 class="txt-white-color font-source-sans-pro header-title">
+                                        Catálogo de filmes
+                                    </h1>
+                                    <ul class="nav navbar-nav">
+                                        <li class="nav-link">
+                                            <a class="txt-white-color" [routerLink]="['/']">Home</a>
+                                        </li>
+                                        <li class="nav-link">
+                                            <a class="txt-white-color" [routerLink]="['/movie/genre']">Filmes por Categorias</a>
+                                        </li>
+                                        <li class="nav-link">
+                                            <a class="txt-white-color" [routerLink]="['/movie/discover']">Explorar</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

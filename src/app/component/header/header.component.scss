@@ -1,12 +1,32 @@
 .page-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    min-height: 100px;
-    max-height: 160px;
-    overflow: hidden;
-    box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  min-height: 100px;
+  max-height: 160px;
+  overflow: hidden;
+  box-sizing: border-box;
+  nav.navbar {
+    margin: 0px;
+    li.nav-link > a:hover,
+    li.nav-link > a:focus {
+      text-decoration: none;
+      background-color: rgba(0,0,0,0.15);
+      color: #dedede;
+    }
+  }
 }
 
+h1.header-title {
+  font-size: 1.5em;
+  margin: 0;
+  padding-left: 15px;
+}
+
+// @media (max-width: 767px) { 
+//     .page-header{
+//         max-height: 100px;
+//     }
+// }

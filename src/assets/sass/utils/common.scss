@@ -8,6 +8,15 @@ $sizes: 10, 15, 20, 25, 30, 40, 50, 60, 100;
   .pd-bottom-#{$padding} {
     padding-bottom: #{$padding}px;
   }
+  .pd-left-#{$padding} {
+    padding-left: #{$padding}px;
+  }
+  .pd-right-#{$padding} {
+    padding-right: #{$padding}px;
+  }
+  .pd-content-#{$padding} {
+    padding: #{$padding}px;
+  }
 }
 
 @each $margin in $sizes {

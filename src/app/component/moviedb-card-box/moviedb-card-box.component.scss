@@ -1,0 +1,31 @@
+.movie-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  width: 100%;
+  min-height: 150px;
+  .card-content {
+    display: flex;
+    align-items: center;
+    .card-img {
+      width: 185px;
+      max-width: 40%;
+    }
+    .card-details {
+      position: relative;
+      box-sizing: border-box;
+      padding: 10px 16px 16px 16px;
+      overflow: hidden;
+      min-height: 150px;
+      p.view_more {
+        border-top: 1px solid #e3e3e3;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        box-sizing: border-box;
+        padding: 16px;
+      }
+    }
+  }
+  
+}

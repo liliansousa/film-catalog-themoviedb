@@ -1,1 +1,28 @@
-<p>moviedb-card-box works!</p>
+<div class="movie-card">
+    <div class="card-content">
+        <div class="card-img">
+            <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/wigZBAmNrIhxp2FNGOROUAeHvdh.jpg" alt=""
+                width="185" height="278">
+        </div>
+        <div class="card-details">
+            <div class="wrapper">
+                <div>% </div>
+                <div class="flex">
+                    <a [routerLink]="['/movie']">Movie Title</a> <br>
+                    <p>17 de setembro de 2019</p>
+                </div>
+            </div>
+
+            <p class="card-overview pd-bottom-50">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe illum, ipsa nihil adipisci, repellat
+                eaque deleniti quam debitis nisi ducimus sequi aperiam unde repellendus inventore provident commodi
+                dolor vero obcaecati.
+            </p>
+
+            <p class="view_more">
+                <a [routerLink]="[]">Veja mais!</a>
+            </p>
+
+        </div>
+    </div>
+</div>

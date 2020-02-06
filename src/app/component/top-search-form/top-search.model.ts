@@ -7,15 +7,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TopSearchFormComponent } from './top-search-form.component';
 
 @NgModule({
-    declarations: [
-        TopSearchFormComponent
-    ],
-    imports: [
-      CommonModule,
-      ReactiveFormsModule,
-    ],
-    exports: [
-        TopSearchFormComponent
-    ]
-  })
-  export class TopSearchModel { }
+  declarations: [
+    TopSearchFormComponent
+  ],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+  ],
+  exports: [
+    TopSearchFormComponent
+  ]
+})
+export class TopSearchModel { }

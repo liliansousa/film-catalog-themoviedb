@@ -2,7 +2,42 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="topic">search works!</h3>
+                <h2 class="topic">Buscar > Resultados para filmes</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="search-result" class="search-result pd-bottom-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-lg-2">
+                Total de items encontrados
+                {{ totalSearchResult }}
+            </div>
+            <div class="col-sm-12 col-md-9 col-lg-10">
+
+                <div *ngIf="hasResult">
+
+                    <div class="row pd-bottom-20">
+                        <div class="col-sm-12 col-md-6 col-lg-6 margin-bottom-10">
+                            <app-moviedb-card-box></app-moviedb-card-box>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 margin-bottom-10">
+                            <app-moviedb-card-box></app-moviedb-card-box>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div *ngIf="!hasResult">
+                    <p>
+                        Nenhum resultado para a busca!
+                    </p>
+                </div>
+
             </div>
         </div>
     </div>

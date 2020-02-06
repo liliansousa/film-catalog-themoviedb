@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-search-form',
@@ -12,14 +13,14 @@ export class TopSearchFormComponent implements OnInit {
     searchQuery: new FormControl(''),
   })
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
     console.warn(this.searcheForm.value);
-    // this.router.navigate(['search?', this.searcheForm.value]);
+    this.router.navigate(['/search?', this.searcheForm.value]);
   }
 
 }
