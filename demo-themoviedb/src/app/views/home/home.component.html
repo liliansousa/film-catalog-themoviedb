@@ -36,13 +36,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="topic">Destaques: Os melhores de 2019</h3>
+                <h3 class="topic">Destaques: Os favoritos de 2019</h3>
             </div>
         </div>
         <div class="row">
             <div *ngFor="let movie of popularMovies;">
                 <div class="col-md-4 col-sm-4 col-xs-12">
-                    <a class="movie-card" href="/movie?{{ movie.id }}">
+                    <a class="movie-card margin-bottom-20" href="/movie?{{ movie.id }}">
                         <div class="movie-table-card">
                             <div class="movie-img-card">
                                 <img class="img-resize"
@@ -50,7 +50,7 @@
                                 alt="{{ movie.title }}" with="94" height="141">
                             </div>
                             <div class="movie-details-card">
-                                <h5 class="font-source-sans-pro txt-db-green-color">
+                                <h5 class="font-source-sans-pro txt-db-green-color pd-bottom-15">
                                     {{ movie.title }}
                                 </h5>
                                 <p class="section-description">

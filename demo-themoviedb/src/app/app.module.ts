@@ -10,6 +10,9 @@ import { MoviedbInfoLeadspaceComponent } from './component/moviedb-info-leadspac
 import { HomeComponent } from './views/home/home.component';
 import { MovieComponent } from './views/movie/movie.component';
 import { ThemoviedbService } from './services/themoviedb.service';
+import { SearchComponent } from './views/search/search.component';
+import { DiscoverComponent } from './views/movie/discover/discover.component';
+import { GenreComponent } from './views/movie/genre/genre.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { ThemoviedbService } from './services/themoviedb.service';
     MoviedbCardBoxComponent,
     MoviedbInfoLeadspaceComponent,
     HomeComponent,
-    MovieComponent
+    MovieComponent,
+    SearchComponent,
+    DiscoverComponent,
+    GenreComponent
   ],
   imports: [
     BrowserModule,

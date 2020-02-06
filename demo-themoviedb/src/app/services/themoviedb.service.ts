@@ -128,4 +128,21 @@ export class ThemoviedbService {
     })
   }
 
+  public search(query: string) {
+    // Search Movies - GET /search/movie
+    const httpRequest = this.apiUrl + '/search/movie' + this.apiKey + '&language=' + this.language + '&query=' + query;
+    return this.apiConnect.get<MovieDiscoverResponse>(httpRequest).pipe(map(
+      resp => {
+        const searchArray = [];
+        for (const key in resp) {
+          if (resp.hasOwnProperty(key)) {
+            searchArray.push(resp[key]);
+          }
+        }
+        return searchArray;
+      })
+    )
+
+  }
+
 }
