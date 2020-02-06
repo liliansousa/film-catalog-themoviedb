@@ -6,6 +6,11 @@ body {
   font-size: 1em;
 }
 
+.img-resize{
+  max-width: 100%;
+  height: auto;
+}
+
 /*  
     -------------------
     --'Source Sans Pro', sans-serif;
@@ -16,15 +21,18 @@ body {
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Poppins|Source+Sans+Pro&display=swap");
 
-.section-title, .font-poppins{
-    font-family: 'Poppins', sans-serif;
+.section-title,
+.font-poppins {
+  font-family: "Poppins", sans-serif;
 }
 
-.section-subtitle, .font-source-sans-pro{
-    font-family: 'Source Sans Pro', sans-serif;
+.section-subtitle,
+.font-source-sans-pro {
+  font-family: "Source Sans Pro", sans-serif;
 }
 
-.section-description{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 200;
+.section-description {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 200;
+  font-size: 1.4em;
 }

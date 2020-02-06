@@ -8,6 +8,9 @@ export interface MovieDiscoverRequest{
     include_video?: boolean;
     page?: number;
     primary_release_year?: number;
+    primary_release_date?: string;
+    release_date?: string;
+    with_release_type?: number;
     year?: number;
     with_people?: string;
     with_companies?: string;

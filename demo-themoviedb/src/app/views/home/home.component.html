@@ -1,8 +1,38 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h2>Home Works</h2>
+
+        </div>
+    </div>
+</section>
+<section>
+    <div class="purple-bg">
+        <div class="container inner_content">
+            <div class="row">
+                <div class="col-md-12 pd-top-20 pd-bottom-20">
+                    <h2 class="txt-white-color">
+                        Nos cinemas: <span class="txt-db-purple-color">Novidades e Lançamentos</span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pd-top-40 pd-bottom-40">
+        <div class="container">
+            <div class="row-no-gutters">
+                <div *ngFor="let movie of movieList;">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <a class="movie-card" href="/movie?{{ movie.id }}&{{ movie.title }}">
+                            <div class="card-container">
+                                <p class="movie-card-title txt-white-color">
+                                    {{ movie.title }}
+                                </p>
+                                <img class="img-resize" src="https://image.tmdb.org/t/p/w500_and_h282_face/{{ movie.poster_path }}" alt="{{ movie.title }}"  with="500" height="282">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

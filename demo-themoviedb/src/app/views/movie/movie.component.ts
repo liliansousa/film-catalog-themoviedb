@@ -21,7 +21,7 @@ export class MovieComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.movieDBService.getMoviesList(this.movieFilter).subscribe(moviesArray => {
+    this.movieDBService.getMoviesList(this.movieFilter, '').subscribe(moviesArray => {
       this.movieList = moviesArray[3];
     })
   }

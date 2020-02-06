@@ -96,13 +96,23 @@ export class ThemoviedbService {
     )
   }
 
-  public getMoviesList(movieFilter: MovieDiscoverRequest) {
+  public getMoviesList(movieFilter: MovieDiscoverRequest, gteDate?: string, lteDate?: string) {
     const requiredRequest = this.apiUrl + '/discover/movie' + this.apiKey + '&language=' + this.language;
-    return this.apiConnect.get<MovieDiscoverResponse>(requiredRequest).pipe(map(
+    let filterRequest = '';
+    if (gteDate || lteDate) {
+      filterRequest = filterRequest.concat('&primary_release_date.gte=' + gteDate + '&primary_release_date.lte=' + lteDate);
+    }
+
+    for (const filter in movieFilter) {
+      filterRequest = filterRequest.concat('&' + filter + '=' + movieFilter[filter])
+    }
+
+    let httpRequest = requiredRequest + filterRequest;
+    return this.apiConnect.get<MovieDiscoverResponse>(httpRequest).pipe(map(
       resp => {
         const moviesArray = [];
         for (const key in resp) {
-          if (resp.hasOwnProperty(key) && resp.results) {
+          if (resp.hasOwnProperty(key)) {
             moviesArray.push(resp[key]);
           }
         }

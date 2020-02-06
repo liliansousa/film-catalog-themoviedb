@@ -1,0 +1,27 @@
+.purple-bg{
+    background-image: radial-gradient(at 30% bottom, rgba(31, 40, 73, 1) 0%, rgba(8, 28, 36, 1) 70%);
+    .inner_content{
+        background-position: 50% 20%;
+        background-image: url('../../../assets/images/pipes-purple-bg.svg');
+    }
+}
+
+.movie-card{
+    .card-container{
+        position: relative;
+        .movie-card-title{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 2em;
+            position: absolute;
+            bottom: 0px;
+            background-color: rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 0 #000;
+            width: 100%;
+            box-sizing: border-box;
+            font-weight: 500;
+            padding: 15px;
+        }
+    }
+}
