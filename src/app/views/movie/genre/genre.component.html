@@ -1,1 +1,38 @@
-<p>genre works!</p>
+<section class="discover-title pd-top-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <h2 class="txt-black-color txt-size-twenty">Filmes populares por gênero</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pd-top-20 pd-bottom-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                
+                <nav>
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-nav-item" *ngFor="let genre of movieGenres">
+                            <span class="txt-size-fourteen font-source-sans-pro">
+                                {{ genre.name }}
+                            </span>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+            <div class="col-md-10">
+                <!-- 
+                <div *ngFor="let movie of movieList">
+                    <div class="col-sm-12 col-sm-6 col-md-6 col-lg-6 margin-top-15 margin-bottom-15">
+                        <app-moviedb-card-box [elementData]="movie"></app-moviedb-card-box>
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+</section>

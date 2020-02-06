@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="txt-black-color">Descobrir novos Filmes e Séries</h2>
+                <h2 class="txt-black-color txt-size-twenty">Descobrir novos Filmes e Séries</h2>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
 
                     <div class="form-group">
                         <div class="pd-right-15">
-                            <label for="">Ano</label><br>
+                            <label class="section-description" for="">Ano</label><br>
                             <select class="form-control" name="primary_release_year" id="year">
                                 <option value="0">Nenhum</option>
                                 <option *ngFor="let year of releaseYear;" value="{{ year }}">{{ year }}</option>
@@ -26,7 +26,7 @@
 
                     <div class="form-group">
                         <div class="pd-right-15">
-                            <label for="sort_by">Ordenar por</label><br>
+                            <label class="section-description" for="sort_by"><strong>Ordenar por</strong></label><br>
                             <select class="form-control" id="sort_by" name="sort_by">
                                 <option *ngFor="let sort of sortBy;" value="{{ sort.id }}">{{ sort.value }}</option>
                             </select>
@@ -35,7 +35,7 @@
 
                     <div class="form-group">
                         <div class="pd-right-15">
-                            <label for="with_genres">Gêneros</label><br>
+                            <label class="section-description" for="with_genres"><strong>Gêneros</strong></label><br>
                             <select class="form-control" id="with_genres">
                                 <option value="">Filtrar por gênero...</option>
                                 <option *ngFor="let genre of genres;" value="{{ genre.id }}">{{ genre.name }}</option>
@@ -45,7 +45,7 @@
 
                     <div class="form-group">
                         <div class="pd-right-15">
-                            <label for="keywords">Palavras-chave</label><br>
+                            <label class="section-description" for="keywords">Palavras-chave</label><br>
                             <input class="form-control" id="keywords" type="text"
                                 placeholder="Filtrar por Palavras-chave">
                         </div>
@@ -63,7 +63,7 @@
             <!-- Movies Card list Display -->
             <div *ngFor="let movie of movieList">
                 <div class="col-sm-12 col-sm-6 col-md-6 col-lg-6 margin-top-15 margin-bottom-15">
-                    <app-moviedb-card-box></app-moviedb-card-box>
+                    <app-moviedb-card-box [elementData]="movie"></app-moviedb-card-box>
                 </div>
             </div>
 

@@ -40,3 +40,27 @@ body {
   font-weight: 200;
   font-size: 1.4em;
 }
+
+p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+// Font Size : EM
+$font-sizes:
+	"one" 1,
+	"twelve" 1.2,
+	"fourteen" 1.4,
+	"sixteen" 1.6,
+	"eighteen" 1.8,
+  "twenty" 2,
+  "twenty-five" 2.5,
+  "twenty-eight" 2.8,
+  "thirty" 3;
+
+@each $size in $font-sizes{
+	.txt-size-#{nth($size, 1)} {
+		font-size: #{nth($size,2)}em; 
+	}
+}

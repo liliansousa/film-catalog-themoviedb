@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import { MovieDiscoverItem } from 'src/common/interface/movie-discover-response.interface.';
 
 @Component({
   selector: 'app-moviedb-card-box',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviedbCardBoxComponent implements OnInit {
 
+  @Input() elementData: MovieDiscoverItem;
+
   constructor() { }
 
   ngOnInit() {
+    console.log(this.elementData)
   }
 
 }

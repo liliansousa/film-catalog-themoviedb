@@ -19,8 +19,8 @@ export class TopSearchFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.warn(this.searcheForm.value);
-    this.router.navigate(['/search?', this.searcheForm.value]);
+    // console.warn(this.searcheForm.value);
+    this.router.navigate(['/search?#', this.searcheForm.value]);
   }
 
 }
