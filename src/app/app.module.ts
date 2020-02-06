@@ -17,6 +17,7 @@ import { SearchComponent } from './views/search/search.component';
 import { DiscoverComponent } from './views/movie/discover/discover.component';
 import { GenreComponent } from './views/movie/genre/genre.component';
 import { TopSearchFormComponent } from './component/top-search-form/top-search-form.component';
+import { NotFoundComponent } from './views/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TopSearchFormComponent } from './component/top-search-form/top-search-f
     SearchComponent,
     DiscoverComponent,
     GenreComponent,
-    TopSearchFormComponent
+    TopSearchFormComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
