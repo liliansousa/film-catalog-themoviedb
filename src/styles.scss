@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'assets/sass/base/module';
+@import 'assets/sass/utils/module';
+
+a.movie-card {
+    display: inline-block;
+    text-decoration: none;
+    @include transition-all(all 0.2s ease);
+    &:hover{
+        opacity: 0.8;
+        @include transition-all(all 0.2s ease);
+    }
+}

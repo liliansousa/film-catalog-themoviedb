@@ -1,0 +1,23 @@
+.page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    min-height: 100px;
+    max-height: 160px;
+    overflow: hidden;
+    box-sizing: border-box;
+    section.search {
+        width: 100%;
+        background-color: #fff;
+        height: 41px;
+        border-bottom: 1px solid #dedede;
+        .top-search{
+            height: 40px;
+            line-height: 40px;
+            border: none;
+        }
+    }
+}
+
