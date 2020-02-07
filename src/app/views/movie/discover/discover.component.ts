@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+// @Custom
 import { MovieGenre } from 'src/common/interface/movie-genre-response.interface';
 import { ThemoviedbService } from 'src/app/services/themoviedb.service';
 import { MovieDiscoverItem } from 'src/common/interface/movie-discover-response.interface.';
@@ -16,15 +18,24 @@ export class DiscoverComponent implements OnInit {
   ) { }
 
   public movieList: MovieDiscoverItem[] = [];
-  public movieFilter: MovieDiscoverRequest;
   public genres: MovieGenre[] = [];
   public releaseYear: number[]
   public sortBy = [];
 
-  ngOnInit() {
-    this.getGenresList();
-    this.setMovieFilter();
+  movieFilterForm: FormGroup;
 
+  ngOnInit() {
+    this.movieFilterForm = new FormGroup({
+      'movieYear': new FormControl(2019),
+      'movieSort': new FormControl('popularity.desc', Validators.required),
+      'movieGenre': new FormControl(''),
+      'movieKeywords': new FormControl(null)
+    });
+    this.setFormOptions();
+  }
+
+  public setFormOptions() {
+    this.getGenresList();
     this.sortBy = [
       { id: 'popularity.desc', value: 'Popularidade (maior)' },
       { id: 'popularity.asc', value: 'Popularidade (menor)' },
@@ -37,11 +48,16 @@ export class DiscoverComponent implements OnInit {
     ];
 
     this.releaseYear = [
-      2020, 2018, 2017, 2016, 2015,
-      2014, 2013, 2012, 2011, 2010,
-      2009, 2008, 2007, 2006, 2005,
-      2004, 2003, 2002, 2001, 2000
+      2020, 2019, 2018, 2017, 2016,
+      2015, 2014, 2013, 2012, 2011,
+      2010, 2009, 2008, 2007, 2006,
+      2005, 2004, 2003, 2002, 2001,
+      2000, 1999, 1998, 1997, 1996,
+      1995, 1994, 1993, 1992, 1991,
+      1990
     ];
+
+    this.setMovieFilter();
   }
 
   public getGenresList() {
@@ -50,20 +66,34 @@ export class DiscoverComponent implements OnInit {
     })
   }
 
-  public setMovieFilter() {
-    this.movieFilter = {
-      sort_by: 'popularity.desc',
-      primary_release_year: 2019,
+  public setMovieFilter(filter?: any) {
+    let movieFilter = [];
+    movieFilter.push({
+      sort_by: filter ? filter.movieSort : 'popularity.desc',
+      primary_release_year: filter ? filter.movieYear : 2019,
       include_adult: false,
       page: 1
+    });
+
+    if (filter) {
+      if (filter.movieGenre) {
+        movieFilter.push({ with_genres: filter.movieGenre })
+      } else if (filter.with_keywords) {
+        movieFilter.push({ with_keywords: filter.movieKeywords })
+      }
     }
-    this.getMovieList(this.movieFilter);
+
+    this.getMovieList(movieFilter as MovieDiscoverRequest);
   }
 
   public getMovieList(movieFilter: MovieDiscoverRequest) {
-    this.movieDBService.getMoviesList(movieFilter).subscribe(moviesArray => {
+    this.movieDBService.getMoviesList(movieFilter[0]).subscribe(moviesArray => {
       this.movieList = moviesArray[3];
     })
+  }
+
+  public onSubmit() {
+    this.setMovieFilter(this.movieFilterForm.value);
   }
 
 }

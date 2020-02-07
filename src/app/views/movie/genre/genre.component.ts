@@ -3,6 +3,7 @@ import { ThemoviedbService } from 'src/app/services/themoviedb.service';
 import { MovieGenre } from 'src/common/interface/movie-genre-response.interface';
 import { MovieDiscoverItem } from 'src/common/interface/movie-discover-response.interface.';
 import { MovieDiscoverRequest } from 'src/common/interface/movie-discover-request.interface';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-genre',
@@ -19,23 +20,29 @@ export class GenreComponent implements OnInit {
   public movieList: MovieDiscoverItem[] = [];
   public movieFilter: MovieDiscoverRequest;
   public movieGategory: string;
-  selectedValue = null;
+
+  selectedValue: MovieGenre = { id: 12, name: 'Ação' };
+  genreFilterForm: FormGroup;
 
   ngOnInit() {
     this.getGenresList();
+    this.filterGenre(this.selectedValue.id);
+    this.movieGategory = this.selectedValue.name;
+    this.genreFilterForm = new FormGroup({
+      'movieGenre': new FormControl('28'),
+    })
   }
 
   public getGenresList() {
     this.movieDBService.getMovieGenre().subscribe(el => {
       this.movieGenres = el[0].resp.genres;
-      this.filterGenre(this.movieGenres[0])
+      return this.movieGenres;
     })
   }
 
-  public filterGenre(gender: MovieGenre) {
-    this.movieGategory = gender.name;
+  public filterGenre(id: number) {
     this.movieFilter = {
-      with_genres: gender.id.toString(),
+      with_genres: id.toString(),
       sort_by: 'popularity.desc',
       include_adult: false,
       page: 1
@@ -49,4 +56,15 @@ export class GenreComponent implements OnInit {
     })
   }
 
+  public onSubmit() {
+    this.filterGenre(this.genreFilterForm.value.movieGenre);
+    for (let i = 0; i <= this.movieGenres.length; i++) {
+      if (this.movieGenres[i].id == this.genreFilterForm.value.movieGenre) {
+        this.movieGategory = this.movieGenres[i].name;
+      }
+    }
+  }
+
+
 }
+

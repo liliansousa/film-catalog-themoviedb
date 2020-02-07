@@ -6,8 +6,12 @@
     max-height: 278px;
     overflow: hidden;
     .card-img {
-      width: 185px;
-      max-width: 40%;
+      min-width: 185px;
+      background-color: #dedede;
+      height: 278px;
+      img {
+        width: 100%;
+      }
     }
     .card-details {
       position: relative;
@@ -15,6 +19,8 @@
       padding: 20px;
       overflow: hidden;
       height: 278px;
+      width: 80%;
+      min-width: 150px;
       .card-title {
         a.card-link {
           font-size: 1.5em;
@@ -60,7 +66,7 @@
         box-sizing: border-box;
         padding: 16px;
       }
-      .learn-more-link{
+      .learn-more-link {
         font-size: 1.4em;
         color: #000;
         font-weight: 800;
