@@ -21,7 +21,9 @@ import { GenreComponent } from './views/movie/genre/genre.component';
 import { TopSearchFormComponent } from './component/top-search-form/top-search-form.component';
 import { NotFoundComponent } from './views/not-found/not-found.component';
 import { MoviedbMiniatureCardComponent } from './component/moviedb-miniature-card/moviedb-miniature-card.component';
-import { FormatFields } from 'src/common/utils/FormatFields';
+import { LoadingComponent } from './component/loading/loading.component';
+import { MovieCardLinkComponent } from './component/movie-card-link/movie-card-link.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,9 @@ import { FormatFields } from 'src/common/utils/FormatFields';
     GenreComponent,
     TopSearchFormComponent,
     NotFoundComponent,
-    MoviedbMiniatureCardComponent
+    MoviedbMiniatureCardComponent,
+    LoadingComponent,
+    MovieCardLinkComponent
   ],
   imports: [
     BrowserModule,

@@ -1,66 +1,54 @@
-<section class="section-highlighted-movies">
-    <div class="purple-bg">
-        <div class="container inner_content">
-            <div class="row">
-                <div class="col-md-12 pd-top-20 pd-bottom-20">
-                    <h2 class="txt-white-color topic">
-                        Nos cinemas: <span class="txt-db-purple-color">Novidades e Lançamentos</span>
-                    </h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="pd-top-40 pd-bottom-40">
-        <div class="container">
-            <div class="row-no-gutters">
-                <div *ngFor="let movie of movieList;">
-                    <div class="col-md-4 col-sm-6 col-xs-6">
-                        <a class="movie-card" [routerLink]="['/movie',movie.id ]">
-                            <div class="card-container">
-                                <p class="movie-card-title txt-white-color">
-                                    {{ movie.title }}
-                                </p>
-                                <img class="img-resize"
-                                    src="https://image.tmdb.org/t/p/w500_and_h282_face/{{ movie.poster_path }}"
-                                    alt="{{ movie.title }}" with="500" height="282">
-                            </div>
-                        </a>
+<div *ngIf="!isLoading">
+    <section class="section-highlighted-movies">
+        <div class="purple-bg">
+            <div class="container inner_content">
+                <div class="row">
+                    <div class="col-md-12 pd-top-20 pd-bottom-20">
+                        <h2 class="txt-white-color topic">
+                            Nos cinemas: <span class="txt-db-purple-color">Novidades e Lançamentos</span>
+                        </h2>
                     </div>
                 </div>
-
             </div>
         </div>
-    </div>
-</section>
-<section class="section-popular-movies pd-bottom-40">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="topic">Destaques: Os favoritos de 2019</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div *ngFor="let movie of popularMovies;">
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <a class="movie-card margin-bottom-20" [routerLink]="['/movie?', movie.id ]">
-                        <div class="movie-table-card">
-                            <div class="movie-img-card">
-                                <img class="img-resize"
-                                src="https://image.tmdb.org/t/p/w94_and_h141_bestv2/{{ movie.poster_path }}"
-                                alt="{{ movie.title }}" with="94" height="141">
-                            </div>
-                            <div class="movie-details-card">
-                                <h5 class="font-source-sans-pro txt-db-green-color pd-bottom-15">
-                                    {{ movie.title }}
-                                </h5>
-                                <p class="section-description">
-                                    {{ movie.overview }}
-                                </p>
-                            </div>
+        <div class="pd-top-40 pd-bottom-40">
+            <div class="container">
+                <div class="row-no-gutters">
+                    <div *ngFor="let movie of movieList;">
+                        <div class="col-md-4 col-sm-6 col-xs-6">
+                            <a class="movie-card" [routerLink]="['/movie',movie.id ]">
+                                <div class="card-container">
+                                    <p class="movie-card-title txt-white-color">
+                                        {{ movie.title }}
+                                    </p>
+                                    <img class="img-resize"
+                                        src="https://image.tmdb.org/t/p/w500_and_h282_face/{{ movie.poster_path }}"
+                                        alt="{{ movie.title }}" with="500" height="282">
+                                </div>
+                            </a>
                         </div>
-                    </a>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <section class="section-popular-movies pd-bottom-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="topic">Destaques: Os favoritos de 2019</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div *ngFor="let movie of popularMovies;">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <app-movie-card-link [elementData]="movie"></app-movie-card-link>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<app-loading *ngIf="isLoading"></app-loading>

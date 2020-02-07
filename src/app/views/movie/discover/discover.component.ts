@@ -12,6 +12,8 @@ import { MovieDiscoverRequest } from 'src/common/interface/movie-discover-reques
   styleUrls: ['./discover.component.scss']
 })
 export class DiscoverComponent implements OnInit {
+  private isLoading: boolean = false;
+  private error: string = null;
 
   constructor(
     private movieDBService: ThemoviedbService
@@ -25,6 +27,7 @@ export class DiscoverComponent implements OnInit {
   movieFilterForm: FormGroup;
 
   ngOnInit() {
+    this.isLoading = true;
     this.movieFilterForm = new FormGroup({
       'movieYear': new FormControl(2019),
       'movieSort': new FormControl('popularity.desc', Validators.required),
@@ -86,14 +89,17 @@ export class DiscoverComponent implements OnInit {
     this.getMovieList(movieFilter as MovieDiscoverRequest);
   }
 
+
+  public onSubmit() {
+    this.isLoading = true;
+    this.setMovieFilter(this.movieFilterForm.value);
+  }
+
   public getMovieList(movieFilter: MovieDiscoverRequest) {
     this.movieDBService.getMoviesList(movieFilter[0]).subscribe(moviesArray => {
       this.movieList = moviesArray[3];
+      this.isLoading = false;
     })
-  }
-
-  public onSubmit() {
-    this.setMovieFilter(this.movieFilterForm.value);
   }
 
 }

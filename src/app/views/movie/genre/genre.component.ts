@@ -11,6 +11,8 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./genre.component.scss']
 })
 export class GenreComponent implements OnInit {
+  private isLoading: boolean = false;
+  private error: string = null;
 
   constructor(
     private movieDBService: ThemoviedbService
@@ -25,6 +27,7 @@ export class GenreComponent implements OnInit {
   genreFilterForm: FormGroup;
 
   ngOnInit() {
+    this.isLoading = true;
     this.getGenresList();
     this.filterGenre(this.selectedValue.id);
     this.movieGategory = this.selectedValue.name;
@@ -50,19 +53,21 @@ export class GenreComponent implements OnInit {
     this.getMovieList(this.movieFilter);
   }
 
-  public getMovieList(filter: MovieDiscoverRequest) {
-    this.movieDBService.getMoviesList(filter).subscribe(moviesArray => {
-      this.movieList = moviesArray[3];
-    })
-  }
-
   public onSubmit() {
+    this.isLoading = true;
     this.filterGenre(this.genreFilterForm.value.movieGenre);
     for (let i = 0; i <= this.movieGenres.length; i++) {
       if (this.movieGenres[i].id == this.genreFilterForm.value.movieGenre) {
         this.movieGategory = this.movieGenres[i].name;
       }
     }
+  }
+
+  public getMovieList(filter: MovieDiscoverRequest) {
+    this.movieDBService.getMoviesList(filter).subscribe(moviesArray => {
+      this.movieList = moviesArray[3];
+      this.isLoading = false;
+    })
   }
 
 

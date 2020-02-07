@@ -12,22 +12,30 @@ import { MovieDetailsResponse } from 'src/common/interface/movie-details-respons
 })
 
 export class MovieComponent implements OnInit {
-  public movieDetails: MovieDetailsResponse;
-  public movieTitle: string;
-  private movieId: number;
-  
+  private isLoading: boolean = false;
+  private error: string = null;
+
   constructor(
     private movieDBService: ThemoviedbService,
     private route: ActivatedRoute
   ) { }
 
+  public movieDetails: MovieDetailsResponse;
+  public movieTitle: string;
+  private movieId: number;
+
   ngOnInit() {
+    this.isLoading = true;
     this.movieId = this.route.snapshot.params['id'];
-    this.movieDBService.getMovieDetails(this.movieId).subscribe(movie => {
-      this.movieTitle = movie.title;
-      this.movieDetails = movie;
-    })
+    this.getMovie(this.movieId)
   }
 
+  public getMovie(id: any) {
+    this.movieDBService.getMovieDetails(id).subscribe(movie => {
+      this.movieTitle = movie.title;
+      this.movieDetails = movie;
+      this.isLoading = false;
+    })
+  }
 
 }

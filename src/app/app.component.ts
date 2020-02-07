@@ -14,4 +14,8 @@ export class AppComponent {
     private apiConnect: HttpClient,
     private movieDBService: ThemoviedbService
   ) { }
+
+  public toggleLoading(enable: boolean){
+    
+  }
 }

@@ -110,3 +110,23 @@ main {
     rgba(19.61%, 76.86%, 73.73%, 0.88) 100%
   );
 }
+
+.movie-card {
+  .card-container {
+    position: relative;
+    .movie-card-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 2em;
+      position: absolute;
+      bottom: 0px;
+      background-color: rgba(0, 0, 0, 0.5);
+      text-shadow: 1px 1px 0 #000;
+      width: 100%;
+      box-sizing: border-box;
+      font-weight: 500;
+      padding: 15px;
+    }
+  }  
+}

@@ -8,6 +8,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  private isLoading: boolean = false;
+  private error: string = null;
+  
   constructor(
     private movieDBService: ThemoviedbService,
     private route: ActivatedRoute
@@ -18,6 +21,7 @@ export class SearchComponent implements OnInit {
   public totalSearchResult: number;
 
   ngOnInit() {
+    this.isLoading = true;
     this.searchQuery = this.route.snapshot.params['query'];
     this.getSearchByQuery();
   }
@@ -27,6 +31,7 @@ export class SearchComponent implements OnInit {
       this.movieDBService.search(this.searchQuery).subscribe(resultArray => {
         this.totalSearchResult = resultArray[3].length;
         this.hasResult = resultArray[3].length >= 1 ? true : false;
+        this.isLoading = false;
       })
     } else {
       // this.movieDBService.getMoviesList
