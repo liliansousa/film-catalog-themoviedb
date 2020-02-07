@@ -6,10 +6,6 @@ body {
   font-size: 1em;
 }
 
-.img-resize {
-  max-width: 100%;
-  height: auto;
-}
 .topic {
   font-size: 2em;
   font-weight: 600;
@@ -33,6 +29,7 @@ body {
 .section-subtitle,
 .font-source-sans-pro {
   font-family: "Source Sans Pro", sans-serif;
+  margin: 0px;
 }
 
 .section-description {
@@ -46,21 +43,30 @@ p {
   text-overflow: ellipsis;
 }
 
-
 // Font Size : EM
-$font-sizes:
-	"one" 1,
-	"twelve" 1.2,
-	"fourteen" 1.4,
-	"sixteen" 1.6,
-	"eighteen" 1.8,
-  "twenty" 2,
-  "twenty-five" 2.5,
-  "twenty-eight" 2.8,
-  "thirty" 3;
+$font-sizes: "one" 1, "twelve" 1.2, "fourteen" 1.4, "sixteen" 1.6, "eighteen" 1.8, "twenty" 2, "twenty-five" 2.5,
+  "twenty-eight" 2.8, "thirty" 3;
 
-@each $size in $font-sizes{
-	.txt-size-#{nth($size, 1)} {
-		font-size: #{nth($size,2)}em; 
-	}
+@each $size in $font-sizes {
+  .txt-size-#{nth($size, 1)} {
+    font-size: #{nth($size, 2)}em;
+  }
+}
+.txt-center{
+  text-align: center;
+}
+
+a.card-link {
+  color: #000;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &:hover {
+    text-decoration: none;
+    color: #333;
+  }
+}
+p.inline-link {
+  white-space: nowrap;
+  max-width: 90%;
 }

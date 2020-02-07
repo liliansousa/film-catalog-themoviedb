@@ -1,25 +1,52 @@
 a.movie-card {
-    display: inline-block;
-    text-decoration: none;
+  display: inline-block;
+  text-decoration: none;
+  @include transition-all(all 0.2s ease);
+  &:hover {
+    opacity: 0.8;
     @include transition-all(all 0.2s ease);
-    &:hover{
-        opacity: 0.8;
-        @include transition-all(all 0.2s ease);
-    }
+  }
+}
+
+.img-resize {
+  max-width: 100%;
+  height: auto;
+}
+
+.full-resize {
+  width: 100% !important;
 }
 
 .wrapper {
+  display: flex;
+  .flex {
     display: flex;
-    .flex {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+    flex-wrap: wrap;
+    align-items: center;
   }
+}
 
-  .sidebar-nav{
-    .sidebar-nav-item{
-      padding: 10px 20px;
-      border-bottom: 2px solid #000;
-    }
+.sidebar-nav {
+  margin: 0px;
+  padding: 0px;
+  .sidebar-nav-item {
+    padding: 10px 20px;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    width: 100%;
   }
+}
+
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  width: 100%;
+}
+
+.purple-bg {
+  background-image: radial-gradient(at 30% bottom, rgba(31, 40, 73, 1) 0%, rgba(8, 28, 36, 1) 70%);
+}
+
+.green-bg {
+  background-image: radial-gradient(at 30% top, rgba(7, 64, 52, 1) 0%, rgba(8, 28, 36, 1) 70%);    
+}

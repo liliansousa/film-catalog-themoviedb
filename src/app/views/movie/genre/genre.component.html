@@ -1,9 +1,13 @@
-<section class="discover-title pd-top-20">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-10">
-                <h2 class="txt-black-color txt-size-twenty">Filmes populares por gênero</h2>
+<section class="discover-title">
+    <div class="green-bg">
+        <div class="container inner_content">
+            <div class="row">
+                <div class="col-md-12 pd-top-20 pd-bottom-20">
+                    <h2 class="txt-white-color topic">
+                        Filmes populares por gênero:
+                        <span class="txt-db-green-color">{{ movieGategory }} </span>
+                    </h2>
+                </div>
             </div>
         </div>
     </div>
@@ -11,27 +15,27 @@
 <section class="pd-top-20 pd-bottom-20">
     <div class="container">
         <div class="row">
-            <div class="col-md-2">
-                
-                <nav>
-                    <ul class="sidebar-nav">
-                        <li class="sidebar-nav-item" *ngFor="let genre of movieGenres">
-                            <span class="txt-size-fourteen font-source-sans-pro">
-                                {{ genre.name }}
-                            </span>
-                        </li>
-                    </ul>
-                </nav>
-
-            </div>
-            <div class="col-md-10">
-                <!-- 
-                <div *ngFor="let movie of movieList">
-                    <div class="col-sm-12 col-sm-6 col-md-6 col-lg-6 margin-top-15 margin-bottom-15">
-                        <app-moviedb-card-box [elementData]="movie"></app-moviedb-card-box>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <div class="pd-right-15">
+                            <label class="section-description" for="with_genres"><strong>Gêneros</strong></label><br>
+                            <select class="form-control" id="with_genres">
+                                <option value="">Filtrar por gênero...</option>
+                                <option *ngFor="let genre of movieGenres;" value="{{ genre.id }}">{{ genre.name }}</option>
+                            </select>
+                        </div>
                     </div>
-                </div> -->
-
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let movie of movieList">
+                <div class="col-xs-12 col-sm-6 col-sm-6 col-md-6 col-lg-4 margin-top-15 margin-bottom-15">
+                    <app-moviedb-miniature-card [elementData]="movie"></app-moviedb-miniature-card>
+                </div>
             </div>
         </div>
     </div>
