@@ -5,11 +5,18 @@
             alt="{{ elementData.title }}" width="500" height="282">
     </a>
     <div class="pd-content-10">
-        <p class="inline-link">
-            <a class="card-link txt-size-sixteen" [routerLink]="['/movie', elementData.id ]">
-                <strong>{{ elementData.title }}</strong>
-            </a>
-        </p>
-        <p class="movie-date section-description"> {{ elementData.release_date }}</p>
+        <div class="card-details">
+            <div class="wrapper">
+                <div class="card-icon">
+                    <p class="movie-vote_average txt-white-color">
+                        {{ elementData.vote_average}}
+                    </p>
+                </div>
+                <div class="card-title pd-left-15">
+                    <a class="card-link" [routerLink]="['/movie', elementData.id ]">{{ elementData.title }}</a> <br>
+                    <p class="movie-date"> {{ elementData.release_date }}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

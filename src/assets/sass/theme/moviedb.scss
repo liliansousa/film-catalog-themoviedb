@@ -128,5 +128,71 @@ main {
       font-weight: 500;
       padding: 15px;
     }
-  }  
+  }
+}
+
+.card-details {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 80%;
+  min-width: 150px;
+  .card-title {
+    a.card-link {
+      font-size: 1.5em;
+      color: #000;
+      font-weight: 800;
+    }
+  }
+  .card-overview {
+    word-wrap: break-word;
+    white-space: normal;
+    color: #4d4d4d;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 100px;
+  }
+  .card-icon {
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 5px solid #000;
+    background-color: #000;
+    .movie-vote_average {
+      font-size: 1.2em;
+      line-height: 1.5em;
+      font-weight: 800;
+      margin: 0px;
+      text-align: center;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      padding: 5px;
+      width: 31px;
+      height: 31px;
+    }
+  }
+  p.view_more {
+    border-top: 1px solid #e3e3e3;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 16px;
+  }
+  .learn-more-link {
+    font-size: 1.4em;
+    color: #000;
+    font-weight: 800;
+  }
+}
+
+
+.movie-date {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1.4em;
+  line-height: 1em;
+  margin: 0px;
 }
