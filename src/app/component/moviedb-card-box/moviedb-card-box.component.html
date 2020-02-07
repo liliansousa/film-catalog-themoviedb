@@ -1,1 +1,32 @@
-<p>moviedb-card-box works!</p>
+<div class="card movie-card">
+    <div class="card-content">
+        <div class="card-img">
+            <a class="card-link" [routerLink]="['/movie', elementData.id ]">
+                <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{ elementData.poster_path }}"
+                alt="{{ elementData.title }}" width="185" height="278">
+            </a>
+        </div>
+        <div class="card-details">
+            <div class="wrapper">
+                <div class="card-icon">
+                    <p class="movie-vote_average txt-white-color">
+                        {{ elementData.vote_average}} 
+                    </p>
+                </div>
+                <div class="card-title pd-left-15">
+                    <a class="card-link" [routerLink]="['/movie', elementData.id ]">{{ elementData.title }}</a> <br>
+                    <p class="movie-date"> {{ elementData.release_date }}</p>
+                </div>
+            </div>
+
+            <p class="card-overview pd-bottom-50 section-description">
+                {{ elementData.overview }}
+            </p>
+
+            <p class="view_more">
+                <a class="learn-more-link card-link" [routerLink]="['/movie', elementData.id ]">Veja mais!</a>
+            </p>
+
+        </div>
+    </div>
+</div>

@@ -24,3 +24,5 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 - Angular: version 8.3.24
 - Sass / SCSS
+- Bootstrap Customizer (https://getbootstrap.com/docs/3.4/customize/)
+- Firebase Hosting

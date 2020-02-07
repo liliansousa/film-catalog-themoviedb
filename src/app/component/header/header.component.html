@@ -3,26 +3,38 @@
         <div class="pd-top-15 pd-bottom-15 db-dark-bg ">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2 col-sm-2 col-xs-2">
-                        <img src="../../../assets/images/primary-green-themoviedb-logo.svg" alt="logo The Movie DB"
-                            width="80" height="70">
-                    </div>
-                    <div class="col-md-10 col-sm-10 col-xs-10">
-                        <h1 class="txt-white-color font-source-sans-pro">Catálogo de filmes - The Movie Database</h1>
+                    <div class="col-md-12">
+                        <div class="wrapper">
+                            <div class="logo">
+                                <img class="img-resize" src="../../../assets/images/primary-green-themoviedb-logo.svg"
+                                    alt="logo The Movie DB" width="80" height="70">
+                            </div>
+                            <div class="header-content">
+                                <nav class="navbar">
+                                    <h1 class="txt-white-color font-source-sans-pro header-title">
+                                        Catálogo de filmes
+                                    </h1>
+                                    <ul class="nav navbar-nav">
+                                        <li class="nav-link txt-size-fourteen">
+                                            <a class="txt-white-color" routerLinkActive="active" routerLink="/"
+                                                [routerLinkActiveOptions]="{exact: true}">Home</a>
+                                        </li>
+                                        <li class="nav-link txt-size-fourteen">
+                                            <a class="txt-white-color" routerLinkActive="active"
+                                                [routerLink]="['/discover/movie']">Explorar</a>
+                                        </li>
+                                        <li class="nav-link txt-size-fourteen">
+                                            <a class="txt-white-color" routerLinkActive="active"
+                                                [routerLink]="['/genres/movie']">Filmes por Categorias</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <section class="search">
-            <div class="container">
-                <div class="row">
-                    <form>
-                        <div class="form-group">
-                            <input type="search" class="form-control top-search" id="exampleInputEmail1" placeholder="Buscar por filme">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
+        <app-top-search-form></app-top-search-form>
     </div>
 </header>

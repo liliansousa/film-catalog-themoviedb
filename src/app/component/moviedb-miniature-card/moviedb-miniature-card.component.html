@@ -1,0 +1,15 @@
+<div class="card movie-miniature-card">
+    <a class="card-link" [routerLink]="['/movie', elementData.id ]">
+        <img class="img-resize full-resize"
+            src="https://image.tmdb.org/t/p/w500_and_h282_face/{{ elementData.poster_path }}"
+            alt="{{ elementData.title }}" width="500" height="282">
+    </a>
+    <div class="pd-content-10">
+        <p class="inline-link">
+            <a class="card-link txt-size-sixteen" [routerLink]="['/movie', elementData.id ]">
+                <strong>{{ elementData.title }}</strong>
+            </a>
+        </p>
+        <p class="movie-date section-description"> {{ elementData.release_date }}</p>
+    </div>
+</div>

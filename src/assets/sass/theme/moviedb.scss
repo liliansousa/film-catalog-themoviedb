@@ -1,0 +1,112 @@
+a.movie-card {
+  display: inline-block;
+  text-decoration: none;
+  @include transition-all(all 0.2s ease);
+  &:hover {
+    opacity: 0.8;
+    @include transition-all(all 0.2s ease);
+  }
+}
+main {
+  min-height: 450px;
+}
+
+.img-resize {
+  max-width: 100%;
+  height: auto;
+}
+
+.full-resize {
+  width: 100% !important;
+}
+
+.wrapper {
+  display: flex;
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+.sidebar-nav {
+  margin: 0px;
+  padding: 0px;
+  .sidebar-nav-item {
+    padding: 10px 20px;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  width: 100%;
+}
+
+.purple-bg {
+  background-image: radial-gradient(at 30% bottom, rgba(31, 40, 73, 1) 0%, rgba(8, 28, 36, 1) 70%);
+}
+
+.green-bg {
+  background-image: radial-gradient(at 30% top, rgba(7, 64, 52, 1) 0%, rgba(8, 28, 36, 1) 70%);
+}
+
+.movie-db-green-line-bg {
+  background-image: url("https://www.themoviedb.org/assets/2/v4/account_pipes/green-79a9507a08a7e5a9b8c643a69026fe46191c45972cb45b944ab4b5f8a9110b03.svg");
+}
+
+.movie-db-purple-line-bg {
+  background-image: url("https://www.themoviedb.org/assets/2/v4/account_pipes/purple-63b164a075461641b7ef444ea97d9787adf45a9552fe215e20063e3ff02491a8.svg");
+}
+
+// toDO: Add custom bg - random
+.bg-1 {
+  background-image: radial-gradient(
+    circle at 20% 50%,
+    rgba(30.2%, 31.37%, 23.53%, 0.98) 0%,
+    rgba(35.29%, 36.08%, 32.94%, 0.88) 100%
+  );
+}
+
+.bg-2 {
+  background-image: radial-gradient(
+    circle at 20% 50%,
+    rgba(20%, 17.25%, 13.33%, 0.98) 0%,
+    rgba(25.88%, 23.92%, 21.18%, 0.88) 100%
+  );
+}
+
+.bg-3 {
+  background-image: radial-gradient(
+    circle at 20% 50%,
+    rgba(19.61%, 7.84%, 7.84%, 0.98) 0%,
+    rgba(27.45%, 13.73%, 13.73%, 0.88) 100%
+  );
+}
+
+.bg-4 {
+  background-image: radial-gradient(
+    circle at 20% 50%,
+    rgba(23.53%, 12.94%, 14.9%, 0.98) 0%,
+    rgba(30.2%, 20.39%, 22.35%, 0.88) 100%
+  );
+}
+
+.bg-5 {
+  background-image: radial-gradient(
+    circle at 20% 50%,
+    rgba(9.8%, 9.8%, 43.92%, 0.98) 0%,
+    rgba(15.69%, 15.69%, 52.16%, 0.88) 100%
+  );
+}
+
+.bg-6 {
+  background-image: radial-gradient(
+    circle at 20% 50%,
+    rgba(12.55%, 69.8%, 66.67%, 0.98) 0%,
+    rgba(19.61%, 76.86%, 73.73%, 0.88) 100%
+  );
+}

@@ -1,1 +1,47 @@
-<p>genre works!</p>
+<section class="discover-title">
+    <div class="green-bg">
+        <div class="container inner_content">
+            <div class="row">
+                <div class="col-md-12 pd-top-20 pd-bottom-20">
+                    <h2 class="txt-white-color topic">
+                        Filmes populares por gênero:
+                        <span class="txt-db-green-color">{{ movieGategory }} </span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pd-top-20 pd-bottom-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <form class="form-inline" [formGroup]="genreFilterForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <div class="pd-right-15">
+                            <label class="section-description" for="with_genres"><strong>Gêneros</strong></label><br>
+                            <select [formControlName]="'movieGenre'" class="form-control" id="with_genres">
+                                <option *ngFor="let genre of movieGenres;" value="{{ genre.id }}">{{ genre.name }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn" type="submit">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let movie of movieList">
+                <div class="col-xs-12 col-sm-6 col-sm-6 col-md-6 col-lg-4 margin-top-15 margin-bottom-15">
+                    <app-moviedb-miniature-card [elementData]="movie"></app-moviedb-miniature-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
