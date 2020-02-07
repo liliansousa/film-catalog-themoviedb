@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { MovieDiscoverRequest } from 'src/common/interface/movie-discover-request.interface';
 import { MovieGenreResponse, MovieGenre } from 'src/common/interface/movie-genre-response.interface';
 import { MovieDiscoverResponse } from 'src/common/interface/movie-discover-response.interface.';
+import { MovieDetailsResponse } from 'src/common/interface/movie-details-response.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -78,13 +79,21 @@ export class ThemoviedbService {
 
   public getMovieDetails(id: number) {
     const httpRequest = this.apiUrl + '/movie/' + id + this.apiKey + '&language=' + this.language;
-    return this.apiConnect.get(httpRequest).subscribe(resp => {
-      return resp;
-    })
+    return this.apiConnect.get<MovieDetailsResponse>(httpRequest).pipe(map(
+      resp => {
+        const movie = resp;
+        return movie;
+      })
+    )
   }
 
   public trendingMovies() {
-    const httpRequest = this.apiUrl + '/trending/movie/week' + this.apiKey
+    const httpRequest = this.apiUrl + '/trending/movie/week' + this.apiKey;
+    return this.apiConnect.get(httpRequest).pipe(map(
+      resp => {
+        return resp;
+      })
+    )
   }
 
 
@@ -106,6 +115,11 @@ export class ThemoviedbService {
 
   public searchMoviesOnly(query: string) {
     const httpRequest = this.apiUrl + '/search/movie' + this.apiKey + '&language=' + this.language + '&query=' + query;
+    return this.apiConnect.get(httpRequest).pipe(map(
+      resp => {
+        return resp;
+      })
+    )
   }
 
 }

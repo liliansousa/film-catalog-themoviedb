@@ -13,7 +13,7 @@ export class MoviedbCardBoxComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.elementData)
+
   }
 
 }

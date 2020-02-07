@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemoviedbService } from 'src/app/services/themoviedb.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -7,16 +8,17 @@ import { ThemoviedbService } from 'src/app/services/themoviedb.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  constructor(
+    private movieDBService: ThemoviedbService,
+    private route: ActivatedRoute
+  ) { }
+
   public searchQuery: string;
   public hasResult: boolean = false;
   public totalSearchResult: number;
 
-  constructor(
-    private movieDBService: ThemoviedbService
-  ) { }
-
   ngOnInit() {
-    this.searchQuery = 'teste';
+    this.searchQuery = this.route.snapshot.params['query']; console.log(this.searchQuery)
     this.getSearchByQuery();
   }
 

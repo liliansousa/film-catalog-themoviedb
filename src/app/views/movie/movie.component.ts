@@ -1,8 +1,9 @@
+// @Angular
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+// @Custom
 import { ThemoviedbService } from 'src/app/services/themoviedb.service';
-import { MovieDiscoverItem } from 'src/common/interface/movie-discover-response.interface.';
-import { MovieDiscoverRequest } from 'src/common/interface/movie-discover-request.interface';
-
+import { MovieDetailsResponse } from 'src/common/interface/movie-details-response.interface';
 
 @Component({
   selector: 'app-movie',
@@ -11,18 +12,20 @@ import { MovieDiscoverRequest } from 'src/common/interface/movie-discover-reques
 })
 
 export class MovieComponent implements OnInit {
-  public movieList: MovieDiscoverItem[] = [];
-  public movieFilter: MovieDiscoverRequest = {
-    page: 1
-  }
-
+  public movieDetails: MovieDetailsResponse;
+  public movieTitle: string;
+  private movieId: number;
+  
   constructor(
-    private movieDBService: ThemoviedbService
+    private movieDBService: ThemoviedbService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.movieDBService.getMoviesList(this.movieFilter, '').subscribe(moviesArray => {
-      this.movieList = moviesArray[3];
+    this.movieId = this.route.snapshot.params['id'];
+    this.movieDBService.getMovieDetails(this.movieId).subscribe(movie => {
+      this.movieTitle = movie.title;
+      this.movieDetails = movie;
     })
   }
 

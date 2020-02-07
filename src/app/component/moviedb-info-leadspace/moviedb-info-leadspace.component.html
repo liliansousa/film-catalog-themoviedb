@@ -1,23 +1,34 @@
-<section class="default-bg pd-top-40 pd-bottom-40">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-8 txt-white-color">
-                <h2 class="movie-title txt-white-color font-source-sans-pro">Movie Title <span>(2018)</span></h2>
-
-                <div>
-                    <h4 class="txt-white-color">Overview</h4>
-                    <p class="txt-white-color">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde a quidem, similique explicabo nemo
-                        odit molestias saepe beatae dolorem recusandae dicta sit necessitatibus? Harum sequi, cum
-                        inventore aspernatur tenetur accusantium.
-                    </p>
+<section *ngIf="movieDetails" class="movie-leadspace"
+    [ngStyle]="{ 'background-image': 'url(' + movieBg + movieDetails.backdrop_path +')'}">
+    <div class="pd-top-40 pd-bottom-40 default-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{ movieDetails.poster_path }}"
+                        alt="{{ movieTitle }}">
                 </div>
+                <div class="col-md-8 txt-white-color">
+                    <h2 class="txt-white-color font-source-sans-pro">
+                        <span class="movie-title"> {{ movieTitle }} </span>
+                        <span class="txt-gray-color txt-size-sixteen"> (2018)</span>
+                    </h2>
 
-                <div>
-                    <h4 class="txt-white-color">Featured Crew</h4>
+                    <div class="pd-top-30 pd-bottom-10">
+                        <h4 class="txt-white-color txt-size-sixteen">Sinopse</h4>
+                        <p class="txt-white-color txt-size-sixteen">
+                            {{ movieDetails.overview }}
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="txt-white-color txt-white-color txt-size-sixteen">Equipe técnica principal</h4>
+
+                        <p class="txt-white-color txt-size-sixteen">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </p>
+                    </div>
+
                 </div>
-
             </div>
         </div>
     </div>

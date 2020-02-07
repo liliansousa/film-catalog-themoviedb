@@ -9,11 +9,12 @@ import { NotFoundComponent } from './views/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'movie', component: MovieComponent },
-  { path: 'movie/discover', component: DiscoverComponent },
-  { path: 'movie/genres', component: GenreComponent },
+  { path: 'movie/:id', component: MovieComponent },
+  { path: 'discover/movie', component: DiscoverComponent },
+  { path: 'genres/movie', component: GenreComponent },
   { path: 'search', component: SearchComponent },
-  { path: '404', component: NotFoundComponent},
+  { path: 'search/:query', component: SearchComponent },
+  { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '404' }
 ];
 

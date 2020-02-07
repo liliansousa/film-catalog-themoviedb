@@ -7,6 +7,9 @@ a.movie-card {
     @include transition-all(all 0.2s ease);
   }
 }
+main{
+  min-height: 450px;
+}
 
 .img-resize {
   max-width: 100%;

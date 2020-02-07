@@ -6,8 +6,8 @@
                     <div class="col-md-12">
                         <div class="wrapper">
                             <div class="logo">
-                                <img class="img-resize" src="../../../assets/images/primary-green-themoviedb-logo.svg" alt="logo The Movie DB"
-                                width="80" height="70">
+                                <img class="img-resize" src="../../../assets/images/primary-green-themoviedb-logo.svg"
+                                    alt="logo The Movie DB" width="80" height="70">
                             </div>
                             <div class="header-content">
                                 <nav class="navbar">
@@ -16,13 +16,16 @@
                                     </h1>
                                     <ul class="nav navbar-nav">
                                         <li class="nav-link txt-size-fourteen">
-                                            <a class="txt-white-color" [routerLink]="['/']">Home</a>
+                                            <a class="txt-white-color" routerLinkActive="active" routerLink="/"
+                                                [routerLinkActiveOptions]="{exact: true}">Home</a>
                                         </li>
                                         <li class="nav-link txt-size-fourteen">
-                                            <a class="txt-white-color" [routerLink]="['/movie/genres']">Filmes por Categorias</a>
+                                            <a class="txt-white-color" routerLinkActive="active"
+                                                [routerLink]="['/genres/movie']">Filmes por Categorias</a>
                                         </li>
                                         <li class="nav-link txt-size-fourteen">
-                                            <a class="txt-white-color" [routerLink]="['/movie/discover']">Explorar</a>
+                                            <a class="txt-white-color" routerLinkActive="active"
+                                                [routerLink]="['/discover/movie']">Explorar</a>
                                         </li>
                                     </ul>
                                 </nav>
