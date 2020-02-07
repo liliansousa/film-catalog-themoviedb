@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 // @Custom
 import { ThemoviedbService } from 'src/app/services/themoviedb.service';
 import { MovieDetailsResponse } from 'src/common/interface/movie-details-response.interface';
+import { MovieCast } from 'src/common/interface/movie-credits-response.interface';
 
 @Component({
   selector: 'app-movie',
@@ -12,9 +13,9 @@ import { MovieDetailsResponse } from 'src/common/interface/movie-details-respons
 })
 
 export class MovieComponent implements OnInit {
-  private isLoading: boolean = false;
-  private error: string = null;
-
+  public isLoading: boolean = false;
+  public error: string = null;
+  public movieCast: MovieCast[] = [];
   constructor(
     private movieDBService: ThemoviedbService,
     private route: ActivatedRoute
@@ -32,9 +33,21 @@ export class MovieComponent implements OnInit {
 
   public getMovie(id: any) {
     this.movieDBService.getMovieDetails(id).subscribe(movie => {
+      this.getCredits(id);
       this.movieTitle = movie.title;
       this.movieDetails = movie;
       this.isLoading = false;
+    })
+  }
+
+  public getCredits(id) {
+    this.movieDBService.getMovieCredits(id).subscribe(resp => {
+      let mainCast = resp[1]
+
+      for (let i = 0; i < 6; i++) {
+        this.movieCast.push(mainCast[i]);
+      }
+
     })
   }
 

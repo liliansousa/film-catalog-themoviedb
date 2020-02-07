@@ -12,8 +12,8 @@ import { MovieDiscoverRequest } from 'src/common/interface/movie-discover-reques
   styleUrls: ['./discover.component.scss']
 })
 export class DiscoverComponent implements OnInit {
-  private isLoading: boolean = false;
-  private error: string = null;
+  public isLoading: boolean = false;
+  public error: string = null;
 
   constructor(
     private movieDBService: ThemoviedbService

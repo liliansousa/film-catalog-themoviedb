@@ -11,8 +11,8 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./genre.component.scss']
 })
 export class GenreComponent implements OnInit {
-  private isLoading: boolean = false;
-  private error: string = null;
+  public isLoading: boolean = false;
+  public error: string = null;
 
   constructor(
     private movieDBService: ThemoviedbService

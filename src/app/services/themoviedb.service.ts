@@ -115,4 +115,22 @@ export class ThemoviedbService {
     )
   }
 
+  public getMovieCredits(movieId: number) {
+    const httpRequest = this.apiUrl + '/movie/' + movieId + '/credits' + this.apiKey;
+    return this.apiConnect.get(httpRequest).pipe(
+      map(resp => {
+        const movieCastArray = []
+        for (const key in resp) {
+          if (resp.hasOwnProperty(key)) {
+            movieCastArray.push(resp[key]);
+          }
+        }
+        return movieCastArray;
+      }),
+      catchError((error) => {
+        return throwError(this.errorMessage, error);
+      })
+    )
+  }
+
 }

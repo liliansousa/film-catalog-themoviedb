@@ -8,8 +8,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  private isLoading: boolean = false;
-  private error: string = null;
+  public isLoading: boolean = false;
+  public error: string = null;
   
   constructor(
     private movieDBService: ThemoviedbService,
@@ -27,6 +27,7 @@ export class SearchComponent implements OnInit {
   }
 
   public getSearchByQuery() {
+    console.log(this.searchQuery)
     if (this.searchQuery != undefined && this.searchQuery.length > 1) {
       this.movieDBService.search(this.searchQuery).subscribe(resultArray => {
         this.totalSearchResult = resultArray[3].length;
@@ -34,6 +35,7 @@ export class SearchComponent implements OnInit {
         this.isLoading = false;
       })
     } else {
+      this.isLoading = false;
       // this.movieDBService.getMoviesList
     }
   }

@@ -13,7 +13,7 @@
     li.nav-link > a:hover,
     li.nav-link > a:focus {
       text-decoration: none;
-      background-color: rgba(0,0,0,0.15);
+      background-color: rgba(0, 0, 0, 0.15);
       color: #dedede;
     }
   }
@@ -24,9 +24,59 @@ h1.header-title {
   margin: 0;
   padding-left: 15px;
 }
+.mobile-menu {
+  display: none;
+}
 
-// @media (max-width: 767px) { 
-//     .page-header{
-//         max-height: 100px;
-//     }
-// }
+@media (max-width: 768px) {
+  // Mobile Menu
+  .logo {
+    width: 50px;
+  }
+  .header-content {
+    width: 90%;
+    .mobile-menu {
+      display: block;
+      position: absolute;
+      right: 20px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 10%;
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      box-sizing: border-box;
+      color: #fff;
+    }
+    nav.navbar {
+      display: inline-block;
+      align-items: center;
+      height: 40px;
+      line-height: 38px;
+      width: 77%;
+      h1.header-title {
+        font-size: 1.8em;
+        float: left;
+        display: inline;
+      }
+    }
+
+    ul.nav.navbar-nav {
+      position: fixed;
+      right: -100%;
+      top: 0px;
+      z-index: 99;
+      background-image: radial-gradient(at 30% top, #074034 0%, #081c24 70%);
+      margin: 0px;
+      height: 100vh;
+      box-sizing: border-box;
+      padding-top: 40px;
+      .menu-open {
+        right: 0px;
+      }
+      .menu-closed {
+        right: -100%;
+      }
+    }
+  }
+}

@@ -23,6 +23,7 @@ import { NotFoundComponent } from './views/not-found/not-found.component';
 import { MoviedbMiniatureCardComponent } from './component/moviedb-miniature-card/moviedb-miniature-card.component';
 import { LoadingComponent } from './component/loading/loading.component';
 import { MovieCardLinkComponent } from './component/movie-card-link/movie-card-link.component';
+import { MovieCastComponent } from './component/movie-cast/movie-cast.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MovieCardLinkComponent } from './component/movie-card-link/movie-card-l
     NotFoundComponent,
     MoviedbMiniatureCardComponent,
     LoadingComponent,
-    MovieCardLinkComponent
+    MovieCardLinkComponent,
+    MovieCastComponent
   ],
   imports: [
     BrowserModule,

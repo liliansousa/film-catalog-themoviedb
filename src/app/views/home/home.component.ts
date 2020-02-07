@@ -12,8 +12,8 @@ export class HomeComponent implements OnInit {
 
   public movieList: MovieDiscoverItem[] = [];
   public popularMovies: MovieDiscoverItem[] = [];
-  private isLoading: boolean = false;
-  private error: string = null;
+  public isLoading: boolean = false;
+  public error: string = null;
 
   constructor(
     private movieDBService: ThemoviedbService
