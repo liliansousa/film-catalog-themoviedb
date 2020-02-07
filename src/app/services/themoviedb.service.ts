@@ -6,6 +6,7 @@ import { MovieDiscoverRequest } from 'src/common/interface/movie-discover-reques
 import { MovieGenreResponse, MovieGenre } from 'src/common/interface/movie-genre-response.interface';
 import { MovieDiscoverResponse } from 'src/common/interface/movie-discover-response.interface.';
 import { MovieDetailsResponse } from 'src/common/interface/movie-details-response.interface';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,10 +16,10 @@ export class ThemoviedbService {
     private apiConnect: HttpClient
   ) { }
 
-  // THE MOVIEDB https://api.themoviedb.org/3/
+  // THE MOVIEDB API
 
-  private apiUrl: string = 'https://api.themoviedb.org/3';
-  private apiKey: string = '?api_key=18b731d07cfdd6e6cfa6fb048d1e2f0c';
+  private apiUrl: string = environment.themoviedbApiUrl;
+  private apiKey: string = '?api_key=' + environment.themoviedbApiKey;
   private language: string = 'pt-BR';
 
   public movieGenres: MovieGenre[];

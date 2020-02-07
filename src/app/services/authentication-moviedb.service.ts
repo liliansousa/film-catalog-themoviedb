@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationTokenResponse } from 'src/common/interface/authentication-token-response.interface';
 import { AuthenticationSessionRequest } from 'src/common/interface/authentication-session-request.interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,9 @@ export class AuthenticationMovieDBService {
 
   // THE MOVIEDB https://api.themoviedb.org/3/
 
-  private apiUrl: string = 'https://api.themoviedb.org/3';
-  private apiKey: string = '?api_key=18b731d07cfdd6e6cfa6fb048d1e2f0c';
+  private apiUrl: string = environment.themoviedbApiUrl;
+  private apiKey: string = '?api_key=' + environment.themoviedbApiKey;
+  private language: string = 'pt-BR';
 
   // ------------------------------------------------------------
   // Authentication: Not Used in this DEMO
