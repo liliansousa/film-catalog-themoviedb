@@ -1,2 +1,6 @@
 [0205/012058.208:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\LILIAN~1.DIA\AppData\Local\Temp\karma-55326573\Crashpad: The system cannot find the file specified. (0x2)
 [0205/012100.644:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\LILIAN~1.DIA\AppData\Local\Temp\karma-55326573\Crashpad: The system cannot find the file specified. (0x2)
+[0208/181702.521:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\LILIAN~1.DIA\AppData\Local\Temp\karma-46271622\Crashpad: The system cannot find the file specified. (0x2)
+[0208/182114.476:ERROR:prune_crash_reports.cc(35)] PruneCrashReportDatabase: Failed to get pending reports
+[0208/183154.920:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\LILIAN~1.DIA\AppData\Local\Temp\karma-18259052\Crashpad: The system cannot find the file specified. (0x2)
+[0208/190241.494:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\LILIAN~1.DIA\AppData\Local\Temp\karma-81112195\Crashpad: The system cannot find the file specified. (0x2)

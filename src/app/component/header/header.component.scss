@@ -1,3 +1,9 @@
+header {
+  position: relative;
+  box-sizing: border-box;
+  height: 144px;
+}
+
 .page-header {
   position: fixed;
   top: 0;
@@ -6,7 +12,6 @@
   z-index: 999;
   min-height: 100px;
   max-height: 160px;
-  overflow: hidden;
   box-sizing: border-box;
   nav.navbar {
     margin: 0px;
@@ -30,8 +35,13 @@ h1.header-title {
 
 @media (max-width: 768px) {
   // Mobile Menu
+
+  header {
+    height: 120px;
+  }
+
   .page-header {
-    border-top: 10px solid #01d277;
+    border-top: 5px solid #01d277;
     background: #01d277;
   }
   .logo {

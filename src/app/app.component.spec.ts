@@ -1,7 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { ThemoviedbService } from './services/themoviedb.service';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { MoviedbCardBoxComponent } from './component/moviedb-card-box/moviedb-card-box.component';
@@ -52,6 +51,30 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
+  });
+
+  it('should have the defined title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('movie-catalog');
+  });
+
+  it('should render the main html5 tag', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('main')).toBeTruthy()
+  });
+
+  it('should have the app-header component', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-header')).toBeTruthy()
+  });
+
+  it('should have the app-footer component', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-footer')).toBeTruthy()
   });
 
 });

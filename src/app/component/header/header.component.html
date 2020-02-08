@@ -1,5 +1,5 @@
-<header class="pd-bottom-100 pd-top-30">
-    <div class="page-header">
+<header [ngClass]="{ scroll: topScroll === true }">
+    <div class="page-header" #fixedHeader>
         <div class="pd-top-15 pd-bottom-15 db-dark-bg">
             <div class="container">
                 <div class="row">
