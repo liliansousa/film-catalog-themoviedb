@@ -12,30 +12,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-lg-2">
-                Total de items encontrados
-                {{ totalSearchResult }}
+                <p>{{ sidebarMessage }}</p>
             </div>
             <div class="col-sm-12 col-md-9 col-lg-10">
 
-                <div *ngIf="hasResult">
-
-                    <div class="row pd-bottom-20">
-                        <div class="col-sm-12 col-md-6 col-lg-6 margin-bottom-10">
-                            <app-moviedb-card-box></app-moviedb-card-box>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 margin-bottom-10">
-                            <app-moviedb-card-box></app-moviedb-card-box>
+                <div *ngIf="movieList">
+                    <div class="row">
+                        <div *ngFor="let movie of movieList">
+                            <div class="col-sm-12 col-sm-12 col-md-6 col-lg-6 margin-top-15 margin-bottom-15">
+                                <app-moviedb-card-box [elementData]="movie"></app-moviedb-card-box>
+                            </div>
                         </div>
                     </div>
-
-
-
-                </div>
-
-                <div *ngIf="!hasResult">
-                    <p>
-                        Nenhum resultado para a busca!
-                    </p>
                 </div>
 
             </div>

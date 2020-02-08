@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemoviedbService } from 'src/app/services/themoviedb.service';
 import { ActivatedRoute } from '@angular/router';
+import { MovieDiscoverItem } from 'src/common/interface/movie-discover-response.interface.';
 
 @Component({
   selector: 'app-search',
@@ -8,17 +9,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  public isLoading: boolean = false;
-  public error: string = null;
-  
+   
   constructor(
     private movieDBService: ThemoviedbService,
     private route: ActivatedRoute
   ) { }
 
+  public isLoading: boolean = false;
   public searchQuery: string;
   public hasResult: boolean = false;
-  public totalSearchResult: number;
+  public sidebarMessage: string;
+  public movieList: MovieDiscoverItem[] = [];
 
   ngOnInit() {
     this.isLoading = true;
@@ -27,16 +28,16 @@ export class SearchComponent implements OnInit {
   }
 
   public getSearchByQuery() {
-    console.log(this.searchQuery)
-    if (this.searchQuery != undefined && this.searchQuery.length > 1) {
+    if (this.searchQuery != undefined || this.searchQuery.length > 1) {
       this.movieDBService.search(this.searchQuery).subscribe(resultArray => {
-        this.totalSearchResult = resultArray[3].length;
-        this.hasResult = resultArray[3].length >= 1 ? true : false;
+        this.movieList = resultArray[3];
+        this.hasResult = this.movieList.length >= 1 ? true : false;
+        this.sidebarMessage = 'Total de items encontrados: ' + this.movieList.length;
         this.isLoading = false;
       })
     } else {
+      this.sidebarMessage = 'Nenhum resultado para a busca!';
       this.isLoading = false;
-      // this.movieDBService.getMoviesList
     }
   }
 

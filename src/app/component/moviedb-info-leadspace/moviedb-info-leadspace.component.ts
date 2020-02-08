@@ -13,10 +13,14 @@ export class MoviedbInfoLeadspaceComponent implements OnInit {
   @Input() movieTitle: string;
   @Input() movieDetails: MovieDetailsResponse;
   public movieBg: string = 'https://image.tmdb.org/t/p/w1400_and_h450_face/'
+  public posterUrl: string = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/'
+  // public movieYear: string = ''; 
 
   ngOnInit() { 
 
   }
+
+
 
 }
 
