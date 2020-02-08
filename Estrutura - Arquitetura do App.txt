@@ -1,0 +1,5 @@
+Estrutura de Serviços
+
+ThemoviedbService Service:
+A Classe ThemoviedbService: THE MOVIEDB API - GET DATA Service
+Criado para organizar e centralizar o consumo e chamadas /  HTTP request da API.

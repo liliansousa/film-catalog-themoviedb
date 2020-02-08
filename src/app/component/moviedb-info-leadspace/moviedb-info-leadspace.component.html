@@ -11,13 +11,15 @@
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 txt-white-color">
                     <h2 class="txt-white-color font-source-sans-pro pd-top-20">
                         <span class="movie-title"> {{ movieTitle }} </span>
-                        <!-- <span class="txt-gray-color txt-size-sixteen"> {{ movieYear }} </span> -->
                     </h2>
 
                     <div class="pd-top-30 pd-bottom-10">
                         <h4 class="txt-white-color txt-size-sixteen">Sinopse</h4>
-                        <p class="txt-white-color txt-size-sixteen">
+                        <p class="txt-white-color txt-size-sixteen" *ngIf="movieDetails.overview">
                             {{ movieDetails.overview }}
+                        </p>
+                        <p class="txt-white-color txt-size-sixteen" *ngIf="!movieDetails.overview">
+                            Sinopse não encontrada para esse filme.
                         </p>
                     </div>
                 </div>

@@ -9,13 +9,19 @@ import { Router } from '@angular/router';
 export class TopSearchFormComponent {
 
   searcheForm = new FormGroup({
-    searchQuery: new FormControl(''),
+    searchQuery: new FormControl(null),
   })
 
   constructor(private router: Router) { }
 
+  public disableBtn: boolean = true;
+  
   onSubmit() {
-    this.router.navigate(['/search', this.searcheForm.value.searchQuery]);
+    if (this.searcheForm.value.searchQuery != null) {
+      this.router.navigate(['/search', this.searcheForm.value.searchQuery]);
+    } else {
+
+    }
   }
 
 }

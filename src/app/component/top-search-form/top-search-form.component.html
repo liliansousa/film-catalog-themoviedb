@@ -1,10 +1,16 @@
 <section class="search">
     <div class="container">
         <div class="row">
-            <form [formGroup]="searcheForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <input formControlName="searchQuery" autofocus type="search" class="form-control top-search" id="search-form"
-                        placeholder="Buscar por filme">
+            <form class="form-inline top-search-form" [formGroup]="searcheForm" (ngSubmit)="onSubmit()">
+                <div class="form-group search-btn">
+                    <button class="btn" type="submit" [ngClass]="{ disable: disableBtn === true }">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                </div>
+
+                <div class="form-group search-input">
+                    <input formControlName="searchQuery" autofocus type="search" class="form-control top-search"
+                        id="search-form" placeholder="Buscar por filme...">
                 </div>
             </form>
         </div>

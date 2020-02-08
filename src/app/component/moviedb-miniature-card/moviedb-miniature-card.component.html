@@ -1,9 +1,10 @@
-<div class="card movie-miniature-card">
-    <a class="card-link" [routerLink]="['/movie', elementData.id ]">
-        <img class="img-resize full-resize"
-            src="https://image.tmdb.org/t/p/w500_and_h282_face/{{ elementData.poster_path }}"
-            alt="{{ elementData.title }}" width="500" height="282">
-    </a>
+<div class="card movie-miniature-card" *ngIf="elementData">
+    <div class="card-img image-container">
+        <a class="card-link" [routerLink]="['/movie', elementData.id ]">
+            <img alt="{{ elementData.title }}" *ngIf="elementData.poster_path" class="img-resize full-resize"
+                width="500" height="282" src="https://image.tmdb.org/t/p/w500_and_h282_face/{{ elementData.poster_path }}">
+        </a>
+    </div>
     <div class="pd-content-10">
         <div class="card-details">
             <div class="wrapper">

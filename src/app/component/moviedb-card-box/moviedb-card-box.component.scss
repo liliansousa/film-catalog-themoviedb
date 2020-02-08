@@ -5,10 +5,15 @@
     align-items: center;
     max-height: 278px;
     overflow: hidden;
-    .card-img {
+    .card-img{
       min-width: 185px;
       background-color: #dedede;
       height: 278px;
+      &.poster-placeholder{
+        background-image: url('../../../assets/images/poster-placeholder.jpg');
+        background-size: cover;
+        background-position: center;
+      }
       img {
         width: 100%;
       }

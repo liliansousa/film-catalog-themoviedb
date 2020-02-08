@@ -24,6 +24,7 @@ import { MoviedbMiniatureCardComponent } from './component/moviedb-miniature-car
 import { LoadingComponent } from './component/loading/loading.component';
 import { MovieCardLinkComponent } from './component/movie-card-link/movie-card-link.component';
 import { MovieCastComponent } from './component/movie-cast/movie-cast.component';
+import { FormatFields } from 'src/common/utils/FormatFields';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,10 @@ import { MovieCastComponent } from './component/movie-cast/movie-cast.component'
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
-  providers: [ThemoviedbService],
+  providers: [
+    ThemoviedbService,
+    FormatFields
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
