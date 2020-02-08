@@ -30,16 +30,21 @@ h1.header-title {
 
 @media (max-width: 768px) {
   // Mobile Menu
+  .page-header {
+    border-top: 10px solid #01d277;
+    background: #01d277;
+  }
   .logo {
     width: 50px;
   }
   .header-content {
-    width: 90%;
+    width: 95%; // for older browsers;
+    width: calc(100% - 50px); // calc for new browser;
     .mobile-menu {
       display: block;
       position: absolute;
       right: 20px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       border: none;
       border-radius: 10%;
       width: 35px;
@@ -49,15 +54,19 @@ h1.header-title {
       color: #fff;
     }
     nav.navbar {
-      display: inline-block;
+      display: flex;
+      -webkit-box-align: center;
       align-items: center;
       height: 40px;
       line-height: 38px;
-      width: 77%;
+      width: 100%;
       h1.header-title {
         font-size: 1.8em;
-        float: left;
         display: inline;
+        float: left;
+      }
+      .mobile-menu {
+        float: right;
       }
     }
 
@@ -70,8 +79,8 @@ h1.header-title {
       margin: 0px;
       height: 100vh;
       box-sizing: border-box;
-      padding-top: 40px;
-      width: 40%;
+      padding-top: 15px;
+      width: 150px;
       &.menu-open {
         right: 0px;
       }
