@@ -6,20 +6,22 @@ import { Router } from '@angular/router';
   templateUrl: './top-search-form.component.html',
   styleUrls: ['./top-search-form.component.scss']
 })
-export class TopSearchFormComponent implements OnInit {
+export class TopSearchFormComponent {
 
   searcheForm = new FormGroup({
-    searchQuery: new FormControl(''),
+    searchQuery: new FormControl(null),
   })
 
   constructor(private router: Router) { }
 
-  ngOnInit() {
-    //TODO: Finish Search page and component
-  }
-
+  public disableBtn: boolean = true;
+  
   onSubmit() {
-    this.router.navigate(['/search', this.searcheForm.value]);
+    if (this.searcheForm.value.searchQuery != null) {
+      this.router.navigate(['/search', this.searcheForm.value.searchQuery]);
+    } else {
+
+    }
   }
 
 }

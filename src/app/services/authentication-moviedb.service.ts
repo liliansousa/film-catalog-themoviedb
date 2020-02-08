@@ -13,7 +13,7 @@ export class AuthenticationMovieDBService {
     private apiConnect: HttpClient
   ) { }
 
-  // THE MOVIEDB https://api.themoviedb.org/3/
+  // THE MOVIEDB
 
   private apiUrl: string = environment.themoviedbApiUrl;
   private apiKey: string = '?api_key=' + environment.themoviedbApiKey;

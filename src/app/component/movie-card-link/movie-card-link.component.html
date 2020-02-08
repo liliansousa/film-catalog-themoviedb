@@ -1,0 +1,16 @@
+<a class="movie-card margin-bottom-20" [routerLink]="['/movie', elementData.id ]" *ngIf="elementData">
+    <div class="movie-table-card">
+        <div class="movie-img-card">
+            <img class="img-resize" src="https://image.tmdb.org/t/p/w94_and_h141_bestv2/{{ elementData.poster_path }}"
+                alt="{{ elementData.title }}" with="94" height="141">
+        </div>
+        <div class="movie-details-card">
+            <h5 class="font-source-sans-pro txt-db-green-color pd-bottom-15">
+                {{ elementData.title }}
+            </h5>
+            <p class="section-description">
+                {{ elementData.overview }}
+            </p>
+        </div>
+    </div>
+</a>

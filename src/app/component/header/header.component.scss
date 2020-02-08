@@ -1,3 +1,9 @@
+header {
+  position: relative;
+  box-sizing: border-box;
+  height: 144px;
+}
+
 .page-header {
   position: fixed;
   top: 0;
@@ -6,14 +12,13 @@
   z-index: 999;
   min-height: 100px;
   max-height: 160px;
-  overflow: hidden;
   box-sizing: border-box;
   nav.navbar {
     margin: 0px;
     li.nav-link > a:hover,
     li.nav-link > a:focus {
       text-decoration: none;
-      background-color: rgba(0,0,0,0.15);
+      background-color: rgba(0, 0, 0, 0.15);
       color: #dedede;
     }
   }
@@ -24,9 +29,74 @@ h1.header-title {
   margin: 0;
   padding-left: 15px;
 }
+.mobile-menu {
+  display: none;
+}
 
-// @media (max-width: 767px) { 
-//     .page-header{
-//         max-height: 100px;
-//     }
-// }
+@media (max-width: 768px) {
+  // Mobile Menu
+
+  header {
+    height: 120px;
+  }
+
+  .page-header {
+    border-top: 5px solid #01d277;
+    background: #01d277;
+  }
+  .logo {
+    width: 50px;
+  }
+  .header-content {
+    width: 95%; // for older browsers;
+    width: calc(100% - 50px); // calc for new browser;
+    .mobile-menu {
+      display: block;
+      position: absolute;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 10%;
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      box-sizing: border-box;
+      color: #fff;
+    }
+    nav.navbar {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      height: 40px;
+      line-height: 38px;
+      width: 100%;
+      h1.header-title {
+        font-size: 1.8em;
+        display: inline;
+        float: left;
+      }
+      .mobile-menu {
+        float: right;
+      }
+    }
+
+    ul.nav.navbar-nav {
+      position: fixed;
+      right: -100%;
+      top: 0px;
+      z-index: 99;
+      background-image: radial-gradient(at 20% bottom, #074034 0%, #081c24 70%);
+      margin: 0px;
+      height: 100vh;
+      box-sizing: border-box;
+      padding-top: 15px;
+      width: 150px;
+      &.menu-open {
+        right: 0px;
+      }
+      &.menu-closed {
+        right: -100%;
+      }
+    }
+  }
+}

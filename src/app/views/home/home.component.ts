@@ -12,12 +12,15 @@ export class HomeComponent implements OnInit {
 
   public movieList: MovieDiscoverItem[] = [];
   public popularMovies: MovieDiscoverItem[] = [];
+  public isLoading: boolean = false;
+  public error: string = null;
 
   constructor(
     private movieDBService: ThemoviedbService
   ) { }
 
   ngOnInit() {
+    this.isLoading = true;
     this.highlightedMovies();
     this.getPopularMovies();
   }
@@ -33,11 +36,12 @@ export class HomeComponent implements OnInit {
     }
     let gteDate = '2020-01-01', lteDate = '2020-02-01';
     this.movieDBService.getMoviesList(movieFilter, gteDate, lteDate).subscribe(moviesArray => {
-      const featureMovies = []
+      const featureMovies = [];
       for (let i = 0; i <= 5; i++) {
         featureMovies.push(moviesArray[3][i]);
       }
       this.movieList = featureMovies;
+      this.isLoading = false;
     })
   }
 

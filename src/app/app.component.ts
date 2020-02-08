@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ThemoviedbService } from './services/themoviedb.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +6,9 @@ import { ThemoviedbService } from './services/themoviedb.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'demo-themoviedb';
+  title = 'movie-catalog';
 
-  constructor(
-    private apiConnect: HttpClient,
-    private movieDBService: ThemoviedbService
-  ) { }
+  constructor() { }
+
+
 }

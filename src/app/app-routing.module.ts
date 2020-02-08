@@ -12,7 +12,6 @@ const routes: Routes = [
   { path: 'movie/:id', component: MovieComponent },
   { path: 'discover/movie', component: DiscoverComponent },
   { path: 'genres/movie', component: GenreComponent },
-  { path: 'search', component: SearchComponent },
   { path: 'search/:query', component: SearchComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '404' }

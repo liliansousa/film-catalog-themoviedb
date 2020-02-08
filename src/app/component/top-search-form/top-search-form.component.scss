@@ -1,11 +1,33 @@
 section.search {
-    width: 100%;
-    background-color: #fff;
-    height: 41px;
-    border-bottom: 1px solid #dedede;
-    .top-search{
-        height: 40px;
-        line-height: 40px;
-        border: none;
+  width: 100%;
+  background-color: #fff;
+  height: 41px;
+  border-bottom: 1px solid #dedede;
+  .top-search-form {
+    position: relative;
+    .form-group.search-btn {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      position: absolute;
+      .btn{
+        background: rgba(255,255,255,0.2);
+        &.disable{
+          color: rgba(0,0,0,0.4);
+        }
+      }
     }
+    .form-group.search-input {
+      min-width: 100%;
+      padding-left: 40px;
+      box-sizing: border-box;
+    }
+  }
+  .top-search {
+    height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 40px;
+    border: none;
+  }
 }

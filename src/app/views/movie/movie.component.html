@@ -1,10 +1,21 @@
 <app-moviedb-info-leadspace [movieTitle]="movieTitle" [movieDetails]="movieDetails"></app-moviedb-info-leadspace>
-<section>
+<section class="movie-details-section pd-top-40 pd-bottom-60" *ngIf="movieCast">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-
+                <h2 class="topic">Elenco principal</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let cast of movieCast;">
+                <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2 margin-bottom-15">
+                    <app-movie-cast [elementData]="cast"></app-movie-cast>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<app-loading *ngIf="isLoading"></app-loading>

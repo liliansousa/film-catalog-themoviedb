@@ -1,6 +1,6 @@
-<header class="pd-bottom-100 pd-top-40">
-    <div class="page-header">
-        <div class="pd-top-15 pd-bottom-15 db-dark-bg ">
+<header [ngClass]="{ scroll: topScroll === true }">
+    <div class="page-header" #fixedHeader>
+        <div class="pd-top-15 pd-bottom-15 db-dark-bg">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -14,7 +14,10 @@
                                     <h1 class="txt-white-color font-source-sans-pro header-title">
                                         Catálogo de filmes
                                     </h1>
-                                    <ul class="nav navbar-nav">
+                                    <button class="mobile-menu" (click)="toggleMenu()">
+                                        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                                    </button>
+                                    <ul class="nav navbar-nav" [ngClass]="{ 'menu-open' : showMobileMenu === true }" (click)="toggleMenu()">
                                         <li class="nav-link txt-size-fourteen">
                                             <a class="txt-white-color" routerLinkActive="active" routerLink="/"
                                                 [routerLinkActiveOptions]="{exact: true}">Home</a>
@@ -25,7 +28,7 @@
                                         </li>
                                         <li class="nav-link txt-size-fourteen">
                                             <a class="txt-white-color" routerLinkActive="active"
-                                                [routerLink]="['/genres/movie']">Filmes por Categorias</a>
+                                                [routerLink]="['/genres/movie']">Gêneros</a>
                                         </li>
                                     </ul>
                                 </nav>

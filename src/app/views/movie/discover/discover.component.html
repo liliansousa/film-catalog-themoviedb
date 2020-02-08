@@ -1,78 +1,88 @@
-<section class="discover-title pd-top-20">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="txt-black-color txt-size-twenty">Descobrir novos Filmes</h2>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="discover-search">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- Movies Filter -->
-                <form class="form-inline" [formGroup]="movieFilterForm" (ngSubmit)="onSubmit()">
-
-                    <div class="form-group">
-                        <div class="pd-right-15">
-                            <label class="section-description" for="year"><strong>Ano</strong></label><br>
-                            <select [formControlName]="'movieYear'" class="form-control" name="primary_release_year" id="year">
-                                <option value="0">Nenhum</option>
-                                <option *ngFor="let year of releaseYear;" value="{{ year }}">{{ year }}</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="pd-right-15">
-                            <label class="section-description" for="sort_by"><strong>Ordenar por</strong></label><br>
-                            <select [formControlName]="'movieSort'" class="form-control" id="sort_by" name="sort_by">
-                                <option *ngFor="let sort of sortBy;" value="{{ sort.id }}">{{ sort.value }}</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="pd-right-15">
-                            <label class="section-description" for="with_genres"><strong>Gêneros</strong></label><br>
-                            <select [formControlName]="'movieGenre'" class="form-control" id="with_genres">
-                                <option value="">Filtrar por gênero...</option>
-                                <option *ngFor="let genre of genres;" value="{{ genre.id }}">{{ genre.name }}</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="pd-right-15">
-                            <label class="section-description" for="keywords"><strong>Palavras-chave</strong></label><br>
-                            <input [formControlName]="'movieKeywords'" class="form-control" id="keywords" type="text"
-                                placeholder="Filtrar por Palavras-chave">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <button class="btn" type="submit">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                        </button>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="discover-result pd-top-20 pd-bottom-20">
-    <div class="container">
-        <div class="row">
-            <!-- Movies Card list Display -->
-            <div *ngFor="let movie of movieList">
-                <div class="col-sm-12 col-sm-12 col-md-6 col-lg-6 margin-top-15 margin-bottom-15">
-                    <app-moviedb-card-box [elementData]="movie"></app-moviedb-card-box>
+<div>
+    <section class="discover-title pd-top-20">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="txt-black-color txt-size-twenty">Descobrir novos Filmes</h2>
                 </div>
             </div>
-
         </div>
-    </div>
-</section>
+    </section>
+    <section class="discover-search">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Movies Filter -->
+                    <form class="form-inline" [formGroup]="movieFilterForm" (ngSubmit)="onSubmit()">
+
+                        <div class="form-group">
+                            <div class="pd-right-15">
+                                <label class="section-description" for="year"><strong>Ano</strong></label><br>
+                                <select [formControlName]="'movieYear'" class="form-control" name="primary_release_year"
+                                    id="year">
+                                    <option value="0">Nenhum</option>
+                                    <option *ngFor="let year of releaseYear;" value="{{ year }}">{{ year }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="pd-right-15">
+                                <label class="section-description" for="sort_by"><strong>Ordenar
+                                        por</strong></label><br>
+                                <select [formControlName]="'movieSort'" class="form-control" id="sort_by"
+                                    name="sort_by">
+                                    <option *ngFor="let sort of sortBy;" value="{{ sort.id }}">{{ sort.value }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="pd-right-15">
+                                <label class="section-description"
+                                    for="with_genres"><strong>Gêneros</strong></label><br>
+                                <select [formControlName]="'movieGenre'" class="form-control" id="with_genres">
+                                    <option value="">Filtrar por gênero...</option>
+                                    <option *ngFor="let genre of genres;" value="{{ genre.id }}">{{ genre.name }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="pd-right-15">
+                                <label class="section-description"
+                                    for="keywords"><strong>Palavras-chave</strong></label><br>
+                                <input [formControlName]="'movieKeywords'" class="form-control" id="keywords"
+                                    type="text" placeholder="Filtrar por Palavras-chave">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn" type="submit">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="discover-result pd-top-20 pd-bottom-20">
+        <div class="container">
+            <div class="row">
+                <!-- Movies Card list Display -->
+                <div *ngFor="let movie of movieList">
+                    <div class="col-sm-12 col-sm-12 col-md-6 col-lg-6 margin-top-15 margin-bottom-15">
+                        <app-moviedb-card-box [elementData]="movie"></app-moviedb-card-box>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+<app-loading *ngIf="isLoading"></app-loading>
