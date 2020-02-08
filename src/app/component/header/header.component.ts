@@ -9,7 +9,13 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
+  public showMobileMenu: boolean = false;
+
   ngOnInit() {
+  }
+
+  public toggleMenu(){
+    this.showMobileMenu = !this.showMobileMenu;
   }
 
 }

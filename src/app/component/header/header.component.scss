@@ -66,15 +66,16 @@ h1.header-title {
       right: -100%;
       top: 0px;
       z-index: 99;
-      background-image: radial-gradient(at 30% top, #074034 0%, #081c24 70%);
+      background-image: radial-gradient(at 20% bottom, #074034 0%, #081c24 70%);
       margin: 0px;
       height: 100vh;
       box-sizing: border-box;
       padding-top: 40px;
-      .menu-open {
+      width: 40%;
+      &.menu-open {
         right: 0px;
       }
-      .menu-closed {
+      &.menu-closed {
         right: -100%;
       }
     }

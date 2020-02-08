@@ -14,10 +14,10 @@
                                     <h1 class="txt-white-color font-source-sans-pro header-title">
                                         Catálogo de filmes
                                     </h1>
-                                    <button class="mobile-menu">
+                                    <button class="mobile-menu" (click)="toggleMenu()">
                                         <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
                                     </button>
-                                    <ul class="nav navbar-nav">
+                                    <ul class="nav navbar-nav" [ngClass]="{ 'menu-open' : showMobileMenu === true }">
                                         <li class="nav-link txt-size-fourteen">
                                             <a class="txt-white-color" routerLinkActive="active" routerLink="/"
                                                 [routerLinkActiveOptions]="{exact: true}">Home</a>
