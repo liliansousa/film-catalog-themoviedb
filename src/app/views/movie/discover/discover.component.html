@@ -1,5 +1,5 @@
 <div>
-    <section class="discover-title pd-top-20">
+    <section class="discover-title pd-top-20 pd-bottom-10">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -15,7 +15,7 @@
                     <div class="col-md-12">
                         <!-- Movies Filter -->
                         <div class="form-group">
-                            <div class="pd-right-15 pd-bottom-10">
+                            <div class="pd-right-15 pd-bottom-5">
                                 <label class="section-description" for="year">
                                     <strong>Ano</strong>
                                 </label><br>
@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="pd-right-15 pd-bottom-10">
+                            <div class="pd-right-15 pd-bottom-5">
                                 <label class="section-description" for="sort_by">
                                     <strong>Ordenar por</strong>
                                 </label><br>
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="pd-right-15 pd-bottom-10">
+                            <div class="pd-right-15 pd-bottom-5">
                                 <label class="section-description" for="with_genres">
                                     <strong>Gêneros</strong>
                                 </label><br>
@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="pd-right-15 pd-bottom-10">
+                            <div class="pd-right-15">
                                 <label class="section-description" for="keywords">
                                     <strong>Palavras-chave</strong>
                                 </label><br>
@@ -63,7 +63,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="pd-top-25">
+                            <div class="pd-top-20">
                                 <button class="btn" type="submit">
                                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                 </button>
@@ -86,6 +86,7 @@
                 </div>
 
                 <div class="col-lg-12" *ngIf="totalPages >= 1;">
+                    <!-- TODO: Implement pagination component -->
                     <nav aria-label="page navigation">
                         <ul class="pagination">
                             <li class="page-item">

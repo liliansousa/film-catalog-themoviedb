@@ -78,18 +78,12 @@ export class DiscoverComponent implements OnInit {
     let movieFilter = [];
     movieFilter.push({
       sort_by: filter ? filter.movieSort : 'popularity.desc',
+      with_genres: filter? filter.movieGenre : '',
       primary_release_year: filter ? filter.movieYear : 2019,
+      with_keywords: filter? filter.movieKeywords : '',
       include_adult: false,
       page: this.activePage
     });
-
-    if (filter) {
-      if (filter.movieGenre) {
-        movieFilter.push({ with_genres: filter.movieGenre })
-      } else if (filter.with_keywords) {
-        movieFilter.push({ with_keywords: filter.movieKeywords })
-      }
-    }
 
     this.getMovieList(movieFilter as MovieDiscoverRequest);
   }

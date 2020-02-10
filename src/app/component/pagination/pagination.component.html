@@ -1,0 +1,39 @@
+<nav aria-label="page navigation" *ngIf="totalPages">
+    <ul class="pagination">
+        <li class="page-item">
+            <button aria-label="Previous" class="page-link" type="button" (click)="previousPage()"
+                [ngClass]="{ disable: previousBtn === false }">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </button>
+        </li>
+
+        <!-- First 3 pages -->
+
+        <li class="page-item">
+            <input class="page-link" type="button" value="1" (click)="getPage()">
+        </li>
+
+        <li class="page-item">
+            <input class="page-link" type="button" value="2" (click)="getPage()">
+        </li>
+
+        <li class="page-item">
+            <input class="page-link" type="button" value="3" (click)="getPage()">
+        </li>
+
+        <!-- Last pages -->
+
+        <li class="page-item">
+            <input type="text" class="page-link" type="button" value="" (click)="getPage()">
+        </li>
+
+        <li class="page-item">
+            <button aria-label="Next" class="page-link" type="button" (click)="nextPage()"
+                [ngClass]="{ disable: nextBtn === false }">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </button>
+        </li>
+    </ul>
+</nav>
