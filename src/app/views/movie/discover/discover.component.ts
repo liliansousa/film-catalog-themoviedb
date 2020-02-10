@@ -23,6 +23,11 @@ export class DiscoverComponent implements OnInit {
   public genres: MovieGenre[] = [];
   public releaseYear: number[]
   public sortBy = [];
+  public activePage: number = 1;
+  public totalPages: number;
+
+  public nextBtn: boolean = false;
+  public previousBtn: boolean = false;
 
   movieFilterForm: FormGroup;
 
@@ -75,7 +80,7 @@ export class DiscoverComponent implements OnInit {
       sort_by: filter ? filter.movieSort : 'popularity.desc',
       primary_release_year: filter ? filter.movieYear : 2019,
       include_adult: false,
-      page: 1
+      page: this.activePage
     });
 
     if (filter) {
@@ -89,6 +94,24 @@ export class DiscoverComponent implements OnInit {
     this.getMovieList(movieFilter as MovieDiscoverRequest);
   }
 
+  public getPage(value: any) {
+    this.activePage = value;
+    this.setMovieFilter(this.movieFilterForm.value);
+  }
+
+  public nextPage() {
+    if (this.activePage < this.totalPages) {
+      this.activePage += 1;
+      this.getPage(this.activePage);
+    }
+  }
+
+  public previousPage() {
+    if (this.activePage > 1) {
+      this.activePage -= 1;
+      this.getPage(this.activePage);
+    }
+  }
 
   public onSubmit() {
     this.isLoading = true;
@@ -97,7 +120,21 @@ export class DiscoverComponent implements OnInit {
 
   public getMovieList(movieFilter: MovieDiscoverRequest) {
     this.movieDBService.getMoviesList(movieFilter[0]).subscribe(moviesArray => {
+      this.totalPages = moviesArray[2];
       this.movieList = moviesArray[3];
+
+      if (this.activePage > 1) {
+        this.previousBtn = true;
+      } else {
+        this.previousBtn = false;
+      }
+
+      if (this.activePage < this.totalPages) {
+        this.nextBtn = true;
+      } else {
+        this.nextBtn = false;
+      }
+
       this.isLoading = false;
     })
   }
