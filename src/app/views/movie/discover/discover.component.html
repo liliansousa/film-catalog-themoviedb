@@ -46,7 +46,7 @@
                                 </label><br>
                                 <select [formControlName]="'movieGenre'" class="form-control" id="with_genres">
                                     <option value="">Filtrar por gênero...</option>
-                                    <option *ngFor="let genre of genres;" value="{{ genre.id }}">{{ genre.name }}
+                                    <option *ngFor="let genre of genresList;" value="{{ genre.id }}">{{ genre.name }}
                                     </option>
                                 </select>
                             </div>
@@ -76,8 +76,9 @@
             </div>
         </form>
 
-        <div class="container pd-top-20 pd-bottom-20">
+        <div class="container pd-top-20 pd-bottom-20" *ngIf="movieList">
             <div class="row">
+                
                 <!-- Movies Card list Display -->
                 <div *ngFor="let movie of movieList">
                     <div class="col-sm-12 col-sm-12 col-md-6 col-lg-6 margin-top-15 margin-bottom-15">
@@ -85,12 +86,22 @@
                     </div>
                 </div>
 
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="txt-size-twelve txt-dark-gray-color">
+                                <strong>{{ searchResultMsg }}</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-lg-12" *ngIf="totalPages >= 1;">
                     <!-- TODO: Implement pagination component -->
                     <nav aria-label="page navigation">
                         <ul class="pagination">
                             <li class="page-item">
-                                <button aria-label="Previous" class="page-link" type="button" (click)="previousPage()" [ngClass]="{ disable: previousBtn === false }">
+                                <button aria-label="Previous" class="page-link" type="button" (click)="previousPage()"
+                                    [ngClass]="{ disable: previousBtn === false }">
                                     <span aria-hidden="true">&laquo;</span>
                                     <span class="sr-only">Previous</span>
                                 </button>
@@ -118,7 +129,8 @@
                             </li>
 
                             <li class="page-item">
-                                <button aria-label="Next" class="page-link" type="button" (click)="nextPage()" [ngClass]="{ disable: nextBtn === false }">
+                                <button aria-label="Next" class="page-link" type="button" (click)="nextPage()"
+                                    [ngClass]="{ disable: nextBtn === false }">
                                     <span aria-hidden="true">&raquo;</span>
                                     <span class="sr-only">Next</span>
                                 </button>
@@ -128,6 +140,8 @@
                 </div>
             </div>
         </div>
+
+
 
     </section>
 </div>

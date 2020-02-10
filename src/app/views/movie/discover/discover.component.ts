@@ -20,12 +20,13 @@ export class DiscoverComponent implements OnInit {
   ) { }
 
   public movieList: MovieDiscoverItem[] = [];
-  public genres: MovieGenre[] = [];
+  public genresList: MovieGenre[] = [];
+  public genresIds: number[] = [];
   public releaseYear: number[]
   public sortBy = [];
   public activePage: number = 1;
   public totalPages: number;
-
+  public searchResultMsg: string = '';
   public nextBtn: boolean = false;
   public previousBtn: boolean = false;
 
@@ -70,7 +71,7 @@ export class DiscoverComponent implements OnInit {
 
   public getGenresList() {
     this.movieDBService.getMovieGenre().subscribe(el => {
-      this.genres = el[0].resp.genres;
+      this.genresList = el[0].resp.genres;
     })
   }
 
@@ -78,9 +79,9 @@ export class DiscoverComponent implements OnInit {
     let movieFilter = [];
     movieFilter.push({
       sort_by: filter ? filter.movieSort : 'popularity.desc',
-      with_genres: filter? filter.movieGenre : '',
       primary_release_year: filter ? filter.movieYear : 2019,
-      with_keywords: filter? filter.movieKeywords : '',
+      with_genres: (filter && filter.movieGenre != '') ? filter.movieGenre : null,
+      with_keywords: filter ? filter.movieKeywords : null,
       include_adult: false,
       page: this.activePage
     });
@@ -116,6 +117,11 @@ export class DiscoverComponent implements OnInit {
     this.movieDBService.getMoviesList(movieFilter[0]).subscribe(moviesArray => {
       this.totalPages = moviesArray[2];
       this.movieList = moviesArray[3];
+      if (moviesArray[1] > 1) { 
+        this.searchResultMsg = 'Total de filmes encontrados: ' + moviesArray[1];
+      } else {
+        this.searchResultMsg = 'Nenhum resultado para essa busca'
+      }
 
       if (this.activePage > 1) {
         this.previousBtn = true;
