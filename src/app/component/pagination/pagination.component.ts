@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PaginationComponent implements OnInit {
   // TODO: Create pagination component
 
-  @Input() totalPages: number;
+  @Input() totalPages?: number;
 
   public previousBtn: boolean = false;
   public nextBtn: boolean = false;
@@ -19,7 +19,7 @@ export class PaginationComponent implements OnInit {
   }
 
 
-  public getPage(value: any) {
+  public getPage() {
 
   }
 
