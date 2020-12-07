@@ -43,7 +43,6 @@ export class MovieComponent implements OnInit {
   public getCredits(id) {
     this.movieDBService.getMovieCredits(id).subscribe(resp => {
       let mainCast = resp[1]
-
       for (let i = 0; i < 6; i++) {
         this.movieCast.push(mainCast[i]);
       }

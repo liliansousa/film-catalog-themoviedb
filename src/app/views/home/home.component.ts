@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   public popularMovies: MovieDiscoverItem[] = [];
   public isLoading: boolean = false;
   public error: string = null;
+  public year: number = 2020;
 
   constructor(
     private movieDBService: ThemoviedbService
@@ -29,7 +30,7 @@ export class HomeComponent implements OnInit {
     // Section one content: section-highlighted-movies
     let movieFilter: MovieDiscoverRequest = {
       page: 1,
-      primary_release_year: 2020,
+      primary_release_year: this.year,
       sort_by: 'popularity.desc',
       include_adult: false,
       with_original_language: 'en'
@@ -38,7 +39,7 @@ export class HomeComponent implements OnInit {
     this.movieDBService.getMoviesList(movieFilter, gteDate, lteDate).subscribe(moviesArray => {
       const featureMovies = [];
       for (let i = 0; i <= 5; i++) {
-        featureMovies.push(moviesArray[3][i]);
+        featureMovies.push(moviesArray[1][i]);
       }
       this.movieList = featureMovies;
       this.isLoading = false;
@@ -48,13 +49,13 @@ export class HomeComponent implements OnInit {
   public getPopularMovies() {
     // Section Two content: section-popular-movies
     let movieFilter: MovieDiscoverRequest = {
-      primary_release_year: 2019,
+      primary_release_year: this.year,
       sort_by: 'popularity.desc'
     }
     this.movieDBService.getMoviesList(movieFilter).subscribe(moviesArray => {
       const featureMovies = []
       for (let i = 0; i <= 2; i++) {
-        featureMovies.push(moviesArray[3][i]);
+        featureMovies.push(moviesArray[1][i]);
       }
       this.popularMovies = featureMovies;
     })

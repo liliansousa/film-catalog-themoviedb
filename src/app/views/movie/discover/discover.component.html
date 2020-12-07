@@ -78,6 +78,12 @@
 
         <div class="container pd-top-20 pd-bottom-20" *ngIf="movieList">
             <div class="row">
+
+                <div class="col-md-12">
+                    <p class="txt-size-twelve txt-dark-gray-color">
+                        <strong>{{ searchResultMsg }}</strong>
+                    </p>
+                </div>
                 
                 <!-- Movies Card list Display -->
                 <div *ngFor="let movie of movieList">
@@ -86,15 +92,6 @@
                     </div>
                 </div>
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p class="txt-size-twelve txt-dark-gray-color">
-                                <strong>{{ searchResultMsg }}</strong>
-                            </p>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-lg-12" *ngIf="totalPages >= 1;">
                     <!-- TODO: Implement pagination component -->
                     <nav aria-label="page navigation">
@@ -120,10 +117,20 @@
                             <li class="page-item">
                                 <input class="page-link" type="button" value="3" (click)="getPage(3)">
                             </li>
+                            <li class="page-item">
+                                <input class="page-link" type="button" value="4" (click)="getPage(4)">
+                            </li>
+                            <li class="page-item">
+                                <input class="page-link" type="button" value="5" (click)="getPage(5)">
+                            </li>
 
                             <!-- Last pages -->
+                            <li class="page-item" *ngIf="totalPages > 5">
+                                <input type="text" class="page-link" type="button" value="{{ totalPages -1 }}"
+                                    (click)="getPage(totalPages -1)">
+                            </li>
 
-                            <li class="page-item">
+                            <li class="page-item" *ngIf="totalPages > 5">
                                 <input type="text" class="page-link" type="button" value="{{ totalPages }}"
                                     (click)="getPage(totalPages)">
                             </li>

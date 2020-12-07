@@ -65,7 +65,7 @@ export class GenreComponent implements OnInit {
 
   public getMovieList(filter: MovieDiscoverRequest) {
     this.movieDBService.getMoviesList(filter).subscribe(moviesArray => {
-      this.movieList = moviesArray[3];
+      this.movieList = moviesArray[1];
       this.isLoading = false;
     })
   }

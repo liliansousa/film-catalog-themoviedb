@@ -35,7 +35,7 @@ export class DiscoverComponent implements OnInit {
   ngOnInit() {
     this.isLoading = true;
     this.movieFilterForm = new FormGroup({
-      'movieYear': new FormControl(2019),
+      'movieYear': new FormControl(2020),
       'movieSort': new FormControl('popularity.desc', Validators.required),
       'movieGenre': new FormControl(''),
       'movieKeywords': new FormControl(null)
@@ -79,7 +79,7 @@ export class DiscoverComponent implements OnInit {
     let movieFilter = [];
     movieFilter.push({
       sort_by: filter ? filter.movieSort : 'popularity.desc',
-      primary_release_year: filter ? filter.movieYear : 2019,
+      primary_release_year: filter ? filter.movieYear : 2020,
       with_genres: (filter && filter.movieGenre != '') ? filter.movieGenre : null,
       with_keywords: filter ? filter.movieKeywords : null,
       include_adult: false,
@@ -116,9 +116,9 @@ export class DiscoverComponent implements OnInit {
   public getMovieList(movieFilter: MovieDiscoverRequest) {
     this.movieDBService.getMoviesList(movieFilter[0]).subscribe(moviesArray => {
       this.totalPages = moviesArray[2];
-      this.movieList = moviesArray[3];
-      if (moviesArray[1] > 1) { 
-        this.searchResultMsg = 'Total de filmes encontrados: ' + moviesArray[1];
+      this.movieList = moviesArray[1];
+      if (moviesArray[3] > 1) { 
+        this.searchResultMsg = 'Total de filmes encontrados: ' + moviesArray[3];
       } else {
         this.searchResultMsg = 'Nenhum resultado para essa busca'
       }
