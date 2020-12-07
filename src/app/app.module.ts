@@ -25,6 +25,7 @@ import { LoadingComponent } from './component/loading/loading.component';
 import { MovieCardLinkComponent } from './component/movie-card-link/movie-card-link.component';
 import { MovieCastComponent } from './component/movie-cast/movie-cast.component';
 import { FormatFields } from 'src/common/utils/FormatFields';
+import { PaginationComponent } from './component/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { FormatFields } from 'src/common/utils/FormatFields';
     MoviedbMiniatureCardComponent,
     LoadingComponent,
     MovieCardLinkComponent,
-    MovieCastComponent
+    MovieCastComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

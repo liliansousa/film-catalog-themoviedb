@@ -1,16 +1,17 @@
-<div class="card movie-card">
+<div class="card movie-card" *ngIf="elementData">
     <div class="card-content">
         <div class="card-img poster-placeholder">
             <a class="card-link" [routerLink]="['/movie', elementData.id ]">
-                <img *ngIf="elementData.poster_path" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{ elementData.poster_path }}"
-                alt="{{ elementData.title }}" width="185" height="278">
+                <img *ngIf="elementData.poster_path"
+                    src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{ elementData.poster_path }}"
+                    alt="{{ elementData.title }}" width="185" height="278">
             </a>
         </div>
         <div class="card-details pd-content-15">
             <div class="wrapper">
                 <div class="card-icon">
                     <p class="movie-vote_average txt-white-color">
-                        {{ elementData.vote_average}} 
+                        {{ elementData.vote_average}}
                     </p>
                 </div>
                 <div class="card-title pd-left-15">

@@ -8,7 +8,7 @@ a.movie-card {
   }
 }
 main {
-  min-height: 350px;
+  min-height: 70vh;
 }
 
 .img-resize {
@@ -196,3 +196,23 @@ main {
   margin: 0px;
 }
 
+ul.pagination {
+  li.page-item {
+    margin-right: 2px;
+    .page-link {
+      position: relative;
+      padding: 6px 12px;
+      margin-left: -1px;
+      line-height: 1.42857143;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+      &.disable {
+        color: #dddddd;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

@@ -1,8 +1,15 @@
-.card-content{
+.movie-cast-card {
+    min-height: 200px;
+    .cast-profile-img{
+        min-height: 175px;
+        background-color: #dedede;
+    }
+  .card-content {
     box-sizing: border-box;
     height: 100px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
 }

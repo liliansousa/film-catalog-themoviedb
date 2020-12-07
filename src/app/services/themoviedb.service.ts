@@ -52,7 +52,9 @@ export class ThemoviedbService {
     }
 
     for (const filter in movieFilter) {
-      filterRequest = filterRequest.concat('&' + filter + '=' + movieFilter[filter])
+      if (movieFilter[filter] != null ) {
+        filterRequest = filterRequest.concat('&' + filter + '=' + movieFilter[filter])
+      }
     }
 
     let httpRequest = requiredRequest + filterRequest;
