@@ -1,0 +1,18 @@
+$colours:
+	"black" #000,
+	"white" #fff,
+	"gray" #ccc,
+	"dark-gray" #a9a9a9,
+	"db-purple" #805be7,
+	"db-green" #01d277, // Strong cyan - lime green
+	"db-dark-green" #074034, // Very dark cyan
+	"db-dark" #081c24;
+
+@each $color in $colours{
+	.#{nth($color, 1)}-bg {
+		background: nth($color, 2); 
+	}
+	.txt-#{nth($color, 1)}-color {
+		color:nth($color, 2);
+	}
+}
